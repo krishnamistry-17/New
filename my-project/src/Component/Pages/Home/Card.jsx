@@ -5,7 +5,7 @@ const Card = () => {
     <div className="relative bg-cover bg-center w-full h-[100vh]"
     style={{ backgroundImage: `url(${image})` }}>
  
- <div className="absolute right-5 md:right-8 lg:right-12 
+ <div className="absolute right-5 md:right-8 lg:right-12    
    top-[135px] sm:top-[100px] md:top-[120px] lg:top-[135px] xl:top-[150px]">
    {/* 768-999 */}
    <div className="bg-yellow-yelbg 
