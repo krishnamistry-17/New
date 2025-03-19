@@ -28,6 +28,7 @@ export default {
           paradark: "#666666",
           dark: "#3A3A3A",
           darkest: "#000000",
+          bname: "#242424",
         },
         blue: {
           light: "#69a2ff",
@@ -51,6 +52,10 @@ export default {
           graypara: "#898989",
           graymoney: "#B0B0B0",
           lightpara: "#616161",
+        },
+        cream: {
+          bglight: "#F9F1E7",
+          bg: "#FAF3EA",
         },
       },
       fontFamily: {

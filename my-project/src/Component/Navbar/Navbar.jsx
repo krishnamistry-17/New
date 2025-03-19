@@ -4,21 +4,34 @@ import Search from "../../assets/svgs/Search.svg"
 import Favourite from "../../assets/svgs/Favourite.svg"
 import Cart from "../../assets/svgs/Cart.svg"
 import Logo from "../../assets/svgs/Logo.svg"
+import {useNavigate} from "react-router-dom"
 
 const Navbar = () => {
+  const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const handleHome = () => {
+    navigate("/")
+  }
+  const handleCart = () => {
+    navigate("/cart")
+  }
+
   return (
     <div className="flex justify-between items-center py-[15px] px-[5px] sm:p-[20px] md:flex-row lg:p-[30px]">
-      <div className="bg-white h-[15px] sm:h-[20px] p-[15px] sm:p-[20px] flex md:justify-evenly justify-between items-center w-full">
+      <div className="bg-white h-[15px] sm:h-[20px] p-[15px] sm:p-[20px] 
+      flex md:justify-evenly justify-between items-center w-full">
+        
         <img
           src={Logo}
+          onClick={handleHome}
           alt="nav-logo"
-          className="nav-logo h-[41px] w-[120px] ml-[-10px] sm:w-auto stroke-black sm:h-[40px] md:h-[40px] lg:h-[60px] xl:h-auto"
+          className="nav-logo h-[41px] w-[120px] 
+          ml-[-10px] sm:w-auto stroke-black sm:h-[40px] md:h-[40px] lg:h-[60px] xl:h-auto"
         />
 
         <div className="hidden md:flex justify-between items-center w-[430px] h-[37px] text-black">
@@ -76,6 +89,7 @@ const Navbar = () => {
           <img 
             src={Cart} 
             alt="Cart" 
+            onClick={handleCart}
             className="w-[24px] h-[24px] md:ml-[15px] sm:ml-[26px] xs:ml-[20px]" 
           />
         </div>
