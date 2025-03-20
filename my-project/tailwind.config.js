@@ -57,6 +57,9 @@ export default {
           bglight: "#F9F1E7",
           bg: "#FAF3EA",
         },
+        purple: {
+          light: "#816DFA",
+        },
       },
       fontFamily: {
         sans: ["ui-sans-serif", "system-ui"],

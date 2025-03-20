@@ -8,7 +8,7 @@ import product6 from "../../../assets/images/product6.png";
 import product7 from "../../../assets/images/product7.png";
 import product8 from "../../../assets/images/product8.png";
 import Pagination from './Pagination';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 
@@ -425,20 +425,21 @@ const GalleryShop = () => {
     useEffect(() => {
         loadData();
     }, [])
-
-    const handleSinglePage = () => {
-        navigate("/singleproduct")
+    
+    const handleSinglePage = (id) => {
+        navigate(`/singleproduct/${id}`)
         window.scrollTo(0,0)
     }
 
     return (
       <div className='mt-[46px]'>
       <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-8 mx-4 sm:mx-8">
+
  {currentPosts.map((post, index) => (
      <div key={index} className="relative max-w-full w-full mx-auto">
          <div>
              <img
-                onClick={handleSinglePage}
+                onClick={() => handleSinglePage(post.id)}
                  src={post.image}
                  alt={post.heading}
                  className="w-full h-auto object-cover"

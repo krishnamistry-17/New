@@ -64,7 +64,7 @@ const RelatedProduct = () => {
 
   return (
     <>
-    <div className='mt-[699px]'>
+    <div className='lg:mt-[100px] md:mt-[200px] sm:mt-[500px] xs:mt-[475px]'>
     <h1 className='mb-[26px] font-medium md:text-[36px] xs:text-[26px] items-center text-center text-black-darkest'>Related Products</h1>
         <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-8 mx-4 sm:mx-8">
            

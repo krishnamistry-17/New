@@ -13,6 +13,7 @@ const Product = () => {
 
   const data = [
     {
+      id:1,
       image: product1,
       heading: "Syltherine",
       subheading: "Stylish Cafe Chair",
@@ -22,6 +23,7 @@ const Product = () => {
       discountFlag:true,
     },
     {
+      id:2,
       image: product2,
       heading: "Leviosa",
       subheading: "Stylish cafe chair",
@@ -29,6 +31,7 @@ const Product = () => {
       discount: "Rp.500.000",
     },
     {
+      id:3,
       image: product3,
       heading: "Lolito",
       subheading: "Luxury big sofa",
@@ -38,6 +41,7 @@ const Product = () => {
       discountFlag:true,
     },
     {
+      id:4,
       image: product4,
       heading: "Respira",
       subheading: "Bar table and stool",
@@ -47,13 +51,15 @@ const Product = () => {
       discountFlag:false,
     },
     {
+      id:5,
       image: product5,
       heading: "Grifo",
       subheading: "Night lamp",
       price: "Rp.500.000",
       discount: "Rp.800.000",
     },
-    {
+    { 
+      id:6,
       image: product6,
       heading: "Muggo",
       subheading: "Small mug",
@@ -63,6 +69,7 @@ const Product = () => {
       discountFlag:false,
     },
     {
+      id:7,
       image: product7,
       heading: "Pingky",
       subheading: "Cute bed set",
@@ -72,6 +79,7 @@ const Product = () => {
       discountFlag:true,
     },
     {
+      id:8,
       image: product8,
       heading: "Potty",
       subheading: "Minimalist flower pot",

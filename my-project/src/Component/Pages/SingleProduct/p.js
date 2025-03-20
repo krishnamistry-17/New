@@ -61,7 +61,8 @@
 //               <p>{product.subheading}</p>
 //               <img src={product.image} alt={product.heading} />
 //               <p>Price: {product.price}</p>
-//               {product.discountFlag && <p>Discount: {product.discount}</p>}
+//               {product.discountFlag &&
+//  <p>Discount: {product.discount}</p>}
 //             </div>
 //           ) : (
 //             <p>Product not found!</p>

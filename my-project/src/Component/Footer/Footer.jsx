@@ -149,3 +149,10 @@ export default Footer
 // git remote add origin https://github.com/krishnamistry-17/E-commerce.git
 // git branch -M main
 // git push -u origin main
+
+
+
+//End of day
+//1. git add .
+//2. git commit -m "Describe the changes you've made"
+//3. git push origin main
