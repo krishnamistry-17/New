@@ -9,6 +9,7 @@ import Footer from "./Component/Footer/Footer";
 import Profile from "./Component/Pages/Profile/Profile";
 import Cart from "./Component/Pages/Cart/Cart";
 import SingleProduct from "./Component/Pages/SingleProduct/SingleProduct";
+import ProductComparison from "./Component/Pages/Compare/ProductComparison";
 
 function App() {
   
@@ -25,6 +26,7 @@ function App() {
       <Route path="/profile" element={<Profile/>}/>
       <Route  path="/cart" element={<Cart/>}/>
       <Route path="/singleproduct/:id" element={<SingleProduct/>}/>
+      <Route path="/prodcompare" element={<ProductComparison/>}/>
     </Routes>
     <Footer/>
    </BrowserRouter>

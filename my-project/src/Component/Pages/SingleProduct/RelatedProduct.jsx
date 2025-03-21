@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const RelatedProduct = () => {
     const navigate = useNavigate()
+    
     const [posts, setPosts] = useState([])
      const data = [
                  {
@@ -57,8 +58,8 @@ const RelatedProduct = () => {
             loadData();
         }, [])
 
-        const handleSinglePage = () => {
-            navigate("/singleproduct")
+        const handleSinglePage = (id) => {
+            navigate(`/singleproduct/${id}`)
             window.scrollTo(0,0)
         }
 
@@ -72,7 +73,7 @@ const RelatedProduct = () => {
         <div key={index} className="relative max-w-full w-full mx-auto">
             <div>
                 <img
-                  onClick={handleSinglePage}
+                  onClick={()=> handleSinglePage(post.id)}
                     src={post.image}
                     alt={post.heading}
                     className="w-full h-auto object-cover"
@@ -110,6 +111,17 @@ const RelatedProduct = () => {
         </div>
     ))}
         </div>
+
+        <div className="flex justify-center items-center
+        md:w-[100%] md:h-[48px] 
+        p-[20px 0]
+        bg-white-light 
+        mt-[32px] mb-[69px]">
+        <button className="text-yellow-dark font-bold 
+                text-[16px] p-[15px] w-[245px]
+            bg-white-light border border-yellow-dark  "> Show More</button>
+        </div>
+        
       </div>
       </>
   )

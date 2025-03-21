@@ -35,6 +35,7 @@ const Pagination = ({
 
   console.log(pageNumbers,'pageNumbers');
 
+  
   // Handle page change
   const paginate = (pageNumber, e) => {
     e.preventDefault();

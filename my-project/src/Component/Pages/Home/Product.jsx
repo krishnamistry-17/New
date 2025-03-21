@@ -176,7 +176,7 @@ return (
          md:w-[100%] md:h-[48px] 
          p-[20px 0]
          bg-white-light 
-         mt-[32px] mb-[69px]" style={{ textAlign: "center" }}>
+         mt-[32px] mb-[69px]" >
            <button className="text-yellow-dark font-bold 
            text-[16px] p-[15px] w-[245px]
             bg-white-light border border-yellow-dark  "> Show More</button>

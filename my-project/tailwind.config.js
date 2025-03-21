@@ -17,6 +17,9 @@ export default {
           btn: "#B88E2F",
           light: "#FCF8F3",
         },
+        line: {
+          light: "#E8E8E8",
+        },
         white: {
           light: "#FFFFFF",
           pagebg: "#F5F5F5",
@@ -42,6 +45,7 @@ export default {
           dark: "#a11056",
         },
         gray: {
+          comapreg: "#727272",
           graygridbg: "#C4C4C4",
           darkest: "#1f2d3d",
           dark: "#3c4858",
