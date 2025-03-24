@@ -1,18 +1,19 @@
-import React from 'react'
-import CheckBg from './CheckBg'
-import CheckAd from './CheckAd'
+import React from "react";
+import CheckBg from "./CheckBg";
+import CheckAd from "./CheckAd";
 
 const CheckOut = () => {
   return (
     <>
-    <div>
-        <CheckBg/>
-    </div>
-    <div>
-        <CheckAd/>
-    </div>
+      <div>
+        <CheckBg />
+        hi
+      </div>
+      <div>
+        <CheckAd />
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default CheckOut
+export default CheckOut;
