@@ -1,13 +1,16 @@
 import React from "react";
 import CheckBg from "./CheckBg";
 import CheckAd from "./CheckAd";
+import CheckOutDetails from "./CheckOutDetails";
 
 const CheckOut = () => {
   return (
     <>
       <div>
         <CheckBg />
-        hi
+      </div>
+      <div>
+        <CheckOutDetails />
       </div>
       <div>
         <CheckAd />

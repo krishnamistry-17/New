@@ -30,18 +30,19 @@ const CartTotal = () => {
           md:w-[400px] md:h-[55px]
           sm:w-[291px] sm:h-[55px]
           bg-cream-bglight 
-          xl:mr-[30px] lg:mr-[20px] md:mr-[20px] sm:mr-[3px]"
+          xl:mr-[30px] lg:mr-[20px]
+           md:mr-[20px] sm:mr-[3px]"
           >
             <div
-              className="flex
+              className="sm:flex 
             xl:pl-[142px] xl:pt-[15px] xl:pb-[16px]
             lg:pl-[50px] lg:py-[15px]
             md:pl-[40px] md:py-[15px]
             sm:pl-[10px] sm:py-[15px]
-            xs:pl-[53px] xs:py-[15px]
+            xs:pl-[25px] xs:pt-[23px] 
             "
             >
-              <div>
+              <div className="sm:mt-[0px] xs:mt-[60px]">
                 <h2
                   className="font-medium 
                 md:text-[16px]
@@ -59,7 +60,7 @@ const CartTotal = () => {
                 md:text-[16px]
                 sm:text-[14px] xs:text-[14px]
                 xl:pl-[114px] lg:pl-[100px]
-                md:pl-[54px] sm:pl-[35px] xs:pl-[25px]
+                md:pl-[54px] sm:pl-[35px] xs:pl-[0px] sm:pt-[0px] xs:pt-[15px]
                 text-black-darkest"
                 >
                   Price
@@ -72,7 +73,7 @@ const CartTotal = () => {
                md:text-[16px]
                sm:text-[14px] xs:text-[14px]
                 xl:pl-[137px] lg:pl-[90px]
-                md:pl-[50px] sm:pl-[40px] xs:pl-[20px]
+                md:pl-[50px] sm:pl-[40px] xs:pl-[0px] sm:pt-[0px] xs:pt-[16px]
                 text-black-darkest"
                 >
                   Quantity
@@ -85,7 +86,7 @@ const CartTotal = () => {
                 md:text-[16px]
                 sm:text-[14px] xs:text-[14px]
                 xl:pl-[36px] lg:pl-[32px]
-                md:pl-[20px] sm:pl-[15px] xs:pl-[12px]
+                md:pl-[20px] sm:pl-[15px] xs:pl-[1px] sm:pt-[0px] xs:pt-[12px]
                 text-black-darkest"
                 >
                   Subtotal
@@ -93,7 +94,7 @@ const CartTotal = () => {
               </div>
             </div>
 
-            <div className="flex">
+            <div className="sm:flex">
               <div
                 className="bg-cream-bglight rounded-lg
               xl:w-[105px] xl:h-[95px]  
@@ -101,26 +102,26 @@ const CartTotal = () => {
               md:w-[70px] md:h-[60px]
               sm:w-[60px] sm:h-[43px]
               xs:w-[96px] xs:h-[35px]
-              xl:mt-[55px] lg:mt-[58px] md:mt-[60px] sm:mt-[50px] xs:mt-[8px]"
+              xl:mt-[55px] lg:mt-[58px] md:mt-[60px] sm:mt-[50px] xs:mt-[-210px] sm:ml-[0px] xs:ml-[10px]"
               >
                 <img src={sofa} alt="sofa" className="py-[8px] px-[3px]" />
               </div>
-              <div>
+
+              <div className="sm:mt-[0px] sm:ml-[0px] xs:mt-[48px] xs:ml-[95px]">
                 <p
                   className="text-black-light
                 xl:text-[16px]  lg:text-[15px] md:text-[14px] sm:text-[12px] xs:text-[12px]
                 xl:pl-[34px] lg:pl-[20px] md:pl-[10px] sm:pl-[5px] xs:pl-[5px]
-                xl:pt-[100px] lg:pt-[75px] md:pt-[65px] sm:pt-[55px] xs:pt-[15px]
-
+                xl:pt-[100px] lg:pt-[75px] md:pt-[65px] sm:pt-[55px] xs:pt-[0px]
                 "
                 >
                   Asgaard sofa
                 </p>
               </div>
-              <div>
+              <div className="sm:ml-[0px] xs:ml-[86px]">
                 <p
                   className="text-black-light 
-                xl:text-[16px] lg:text-[15px] md:text-[14px] sm:text-[12px] xs:text-[11px]
+                xl:text-[16px] lg:text-[15px] md:text-[14px] sm:text-[12px] xs:text-[12px]
                 xl:pl-[69px] lg:pl-[20px] md:pl-[10px] sm:pl-[5px] xs:pl-[15px]
                 xl:pt-[100px] lg:pt-[75px] md:pt-[65px] sm:pt-[55px] xs:pt-[15px]
                 "
@@ -128,13 +129,14 @@ const CartTotal = () => {
                   Rs. 250,000.00
                 </p>
               </div>
+
               <div
                 className="
               xl:pt-[100px] xl:pl-[80px] 
               lg:pt-[75px] lg:pl-[47px] 
               md:pt-[65px] md:pl-[0px]
               sm:pt-[55px] sm:pl-[15px]
-              xs:pt-[15px] xs:pl-[19px]
+              xs:pt-[15px] xs:pl-[19px] sm:ml-[0px] xs:ml-[81px]
               "
               >
                 <button
@@ -147,10 +149,10 @@ const CartTotal = () => {
                   1
                 </button>
               </div>
-              <div>
+              <div className=" sm:ml-[0px] xs:ml-[78px]">
                 <p
                   className="text-black-darkest
-                xl:text-[16px] lg:text-[15px] md:text-[14px] sm:text-[12px] xs:text-[11px]
+                xl:text-[16px] lg:text-[15px] md:text-[14px] sm:text-[12px] xs:text-[12px]
                 xl:pl-[70px] lg:pl-[38px] md:pl-[20px] sm:pl-[15px] xs:pl-[18px]
                 xl:pt-[100px] lg:pt-[75px] md:pt-[65px] sm:pt-[55px] xs:pt-[15px]"
                 >
@@ -163,7 +165,7 @@ const CartTotal = () => {
               lg:ml-[20px] lg:mt-[75px]
               md:ml-[10px] md:mt-[65px]
               sm:ml-[5px] sm:mt-[55px]
-              xs:ml-[5px] xs:mt-[21px]
+              xs:ml-[160px] xs:mt-[-63px]
               "
               >
                 <img src={dust} alt="distbn" />
@@ -186,7 +188,7 @@ const CartTotal = () => {
               lg:px-[90px] lg:pt-[10px] 
               md:px-[80px] md:pt-[10px]
               sm:px-[36px] sm:pt-[10px]
-              xs:px-[110px] xs:pt-[30px]
+              xs:px-[110px] xs:pt-[50px]
               xl:text-[32px] lg:text-[30px] 
               md:text-[25px] sm:text-[20px] xs:text-[18px]
               font-semibold 
