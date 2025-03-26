@@ -12,7 +12,7 @@ const CheckOutDetails = () => {
       >
         <div className="md:flex">
           {/*left */}
-          <div className="bg-white-light max-w-[608px] h-[1714px] md:mr-[26px]">
+          <div className="bg-white-light max-w-[608px] h-[1714px] lg:mr-[26px] md:mr-[2px]">
             <div>
               <h2
                 className="font-poppins font-semibold text-black-darkest 

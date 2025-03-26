@@ -11,6 +11,7 @@ import Cart from "./Component/Pages/Cart/Cart";
 import SingleProduct from "./Component/Pages/SingleProduct/SingleProduct";
 import ProductComparison from "./Component/Pages/Compare/ProductComparison";
 import CheckOut from "./Component/Pages/CheckOut/CheckOut";
+import Blog from "./Component/Pages/Blog/Blog";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/singleproduct/:id" element={<SingleProduct />} />
         <Route path="/prodcompare" element={<ProductComparison />} />
         <Route path="/checkout" element={<CheckOut />} />
+        <Route path="/blog" element={<Blog />} />
       </Routes>
       <Footer />
     </BrowserRouter>
