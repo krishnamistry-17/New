@@ -12,6 +12,10 @@ import SingleProduct from "./Component/Pages/SingleProduct/SingleProduct";
 import ProductComparison from "./Component/Pages/Compare/ProductComparison";
 import CheckOut from "./Component/Pages/CheckOut/CheckOut";
 import Blog from "./Component/Pages/Blog/Blog";
+import Auth from "./Component/Pages/Auth/Auth";
+import Signin from "./Component/Pages/Signin/Signin";
+import SignUp from "./Component/Pages/SignUp/SignUp";
+import LogOut from "./Component/Pages/LogOut/LogOut";
 
 function App() {
   return (
@@ -29,6 +33,10 @@ function App() {
         <Route path="/prodcompare" element={<ProductComparison />} />
         <Route path="/checkout" element={<CheckOut />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/Logout" element={<LogOut />} />
       </Routes>
       <Footer />
     </BrowserRouter>
