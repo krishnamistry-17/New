@@ -6,7 +6,7 @@ const Auth = () => {
   return (
     <div className="">
       <GoogleLogin
-          onSuccess={(credentialResponse) => {
+        onSuccess={(credentialResponse) => {
           const decode = jwtDecode(credentialResponse.credential);
           console.log(decode);
           console.log(credentialResponse);
@@ -15,7 +15,6 @@ const Auth = () => {
           console.log("Login Failed");
         }}
       />
-      
     </div>
   );
 };

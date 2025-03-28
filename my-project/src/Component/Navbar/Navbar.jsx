@@ -5,9 +5,12 @@ import Favourite from "../../assets/svgs/Favourite.svg";
 import Cart from "../../assets/svgs/Cart.svg";
 import Logo from "../../assets/svgs/Logo.svg";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Pages/Context/AuthContext";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  //using auth context
+  const { isSignedIn, setIsSignedIn } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
 
@@ -22,8 +25,14 @@ const Navbar = () => {
   const handleHome = () => {
     navigate("/");
   };
+
   const handleCart = () => {
     navigate("/cart");
+  };
+
+  const handleLogOut = () => {
+    setIsSignedIn(false);
+    navigate("/signin");
   };
 
   return (
@@ -93,65 +102,72 @@ const Navbar = () => {
             >
               Contact
             </a>
-            <a
-              className="block p-[10px] pr-[4px] text-black text-[16px] font-medium"
-              href="/signin"
-            >
-              Signin /
-              <span>
+
+            {/* SignIn/SignUp options */}
+            {!isSignedIn ? (
+              <>
                 <a
-                  className="pl-[4px] p-[10px] text-black text-[16px] font-medium"
+                  className="block p-[10px] text-black text-[16px] font-medium"
+                  href="/signin"
+                >
+                  SignIn
+                </a>
+                <a
+                  className="block p-[10px] text-black text-[16px] font-medium"
                   href="/signup"
                 >
-                  Signup
+                  SignUp
                 </a>
-              </span>
-            </a>
-
-            <a
-              className="block p-[10px] text-black text-[16px] font-medium"
-              href="/logout"
-            >
-              Logout
-            </a>
+              </>
+            ) : (
+              <a
+                className="block p-[10px] text-black text-[16px] font-medium"
+                href="/"
+                onClick={handleLogOut}
+              >
+                Logout
+              </a>
+            )}
           </div>
         )}
 
         {profileOpen && (
           <div
-            className=" absolute 
+            className="absolute 
           xl:top-[67px] xl:right-[180px]
           lg:top-[67px] lg:right-[98px]
           md:top-[67px] md:right-[46px]
           bg-white shadow-lg w-[200px] p-[20px] rounded-md z-10 bg-white-light"
           >
-            <a
-              className="block p-[10px] text-black text-[16px] font-medium"
-              href="/signin"
-            >
-              Signin
-            </a>
-            <a
-              className="block p-[10px] text-black text-[16px] font-medium"
-              href="/signup"
-            >
-              Signup
-            </a>
-            <a
-              className="block p-[10px] text-black text-[16px] font-medium"
-              href="/logout"
-            >
-              Logout
-            </a>
+            {isSignedIn ? (
+              <a href="/" onClick={handleLogOut}>
+                LogOut
+              </a>
+            ) : (
+              <>
+                <a
+                  className="block p-[10px] text-black text-[16px] font-medium"
+                  href="/signin"
+                >
+                  Signin
+                </a>
+                <a
+                  className="block p-[10px] text-black text-[16px] font-medium"
+                  href="/signup"
+                >
+                  Signup
+                </a>
+              </>
+            )}
           </div>
         )}
-        {/* //sm-md set */}
+
         <div className="flex justify-between items-center">
           <img
             onClick={handleProfile}
             src={Profile}
             alt="Profile"
-            className="w-[24px] h-[24px] md:ml-[15px]  hidden md:block"
+            className="w-[24px] h-[24px] md:ml-[15px] hidden md:block"
           />
           <img
             src={Search}
@@ -170,6 +186,8 @@ const Navbar = () => {
             className="w-[24px] h-[24px] md:ml-[15px] sm:ml-[26px] xs:ml-[20px]"
           />
         </div>
+
+        {/* Menu button for mobile */}
         <div className="flex justify-between items-center md:hidden">
           <button
             onClick={toggleMenu}

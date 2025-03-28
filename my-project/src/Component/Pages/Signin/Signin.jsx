@@ -1,74 +1,154 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { FaFacebook } from "react-icons/fa";
+import { useAuth } from "../Context/AuthContext";
 import Auth from "../Auth/Auth";
 
 const Signin = () => {
+  const { setIsSignedIn } = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSignInSubmit = (e) => {
+    e.preventDefault();
+
+    if (email && password) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s]+$/;
+      if (!emailRegex.test(email)) {
+        alert("Enter valid email address");
+        return;
+      }
+      //set isSignedIn value true for toggle the logout button
+      setIsSignedIn(true);
+      navigate("/");
+    } else {
+      alert("Please enter valid details");
+    }
+  };
+
+  const handleClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <div>
-      <div className="bg-cream-bglight   md:w-[600px] md:h-[500px] md:ml-[150px] md:mr-[20px] md:mb-[20px]">
-        <div className="text-[30px] font-medium text-black-darkest pl-[70px] ">
-          Sign in
-        </div>
+    <div
+      className="bg-cream-bglight 
+    lg:w-[600px] lg:h-[630px] 
+    md:w-[500px] md:h-[600px]
+    sm:w-[441px] sm:h-[600px]
+    xs:w-[300px] xs:h-[500px]
+    lg:mt-[20px] md:mt-[30px]
+    xl:ml-[480px] lg:mx-[215px] md:mx-[140px] sm:mx-[20px] xs:mx-[10px] "
+    >
+      <div
+        className="font-medium text-black-darkest 
+      md:pl-[70px] sm:pl-[35px] xs:pl-[20px]
+      lg:text-[30px] md:text-[28px] sm:text-[25px] xs:text-[23px]"
+      >
+        Sign in
+      </div>
+      <form onSubmit={handleSignInSubmit}>
         <div>
           <p
-            className=" pt-[36px] font-medium text-black-darkest 
-                        sm:pl-[75px] 
-                        lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px]"
+            className="sm:pt-[36px] xs:pt-[25px] font-medium text-black-darkest 
+          md:pl-[75px] sm:pl-[35px] xs:pl-[20px] 
+          lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px]"
           >
             Email
           </p>
           <input
             type="email"
-            placeholder="abc@gmail.com"
-            className="bg-white-light border border-black-light rounded-md
-              sm:pl-[25px] 
-                            xl:w-[300px] xl:h-[75px] 
-                            lg:w-[350px] lg:h-[70px]
-                            md:w-[250px] md:h-[50px]
-                            sm:w-[350px] sm:h-[50px]
-                            xs:w-[93%] xs:h-[43px]
-                            xl:ml-[76px] xl:mr-[79px] xl:mt-[22px] 
-                            lg:ml-[70px] lg:mt-[20px]
-                            md:ml-[70px] md:mt-[18px]
-                            sm:ml-[70px] sm:mt-[17px]
-                            xs:mx-[10px] xs:mt-[16px]
-                            "
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="abc12@gmail.com"
+            className="bg-white-light border border-black-light 
+            sm:pl-[25px] xs:pl-[10px]
+            xl:w-[300px] xl:h-[70px] 
+            lg:w-[350px] lg:h-[70px] 
+            md:w-[250px] md:h-[50px] 
+            sm:w-[350px] sm:h-[50px] 
+            xs:w-[200px] xs:h-[40px]
+            xl:ml-[76px] xl:mt-[22px] 
+            lg:ml-[70px] lg:mt-[20px] 
+            md:ml-[70px] md:mt-[18px] 
+            sm:ml-[35px] sm:mt-[17px] 
+            xs:ml-[20px] xs:mt-[15px]
+            "
           />
         </div>
 
         <div>
           <p
             className="text-black-darkest font-medium 
-                          lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px] 
-                          sm:pl-[75px] xs:pl-[30px] pt-[36px]"
+          lg:text-[16px] md:text-[15px]
+           sm:text-[14px] xs:text-[13px] 
+           md:pl-[75px] sm:pl-[35px] xs:pl-[20px] sm:pt-[36px] xs:pt-[25px]"
           >
             Password
           </p>
           <input
-            type="number"
-            className=" border border-black-light rounded-md bg-white-light text-black-light
-                            xl:w-[300px] xl:h-[75px]
-                            lg:w-[350px] lg:h-[70px]
-                            md:w-[250px] md:h-[42px]
-                             sm:w-[350px] sm:h-[50px]
-                            xs:w-[93%] xs:h-[43px]
-                            xl:ml-[76px] xl:mt-[22px] 
-                            lg:ml-[70px] lg:mt-[20px]
-                            md:ml-[70px] md:mt-[18px]
-                            sm:ml-[70px] sm:mt-[17px]
-                            xs:mx-[10px] xs:mt-[16px]
-  
-                            lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px] pl-[31px] py-[25px]"
-            placeholder="123.."
+            type="password"
+            placeholder="123"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="border border-black-light bg-white-light text-black-light 
+           sm:pl-[25px] xs:pl-[10px]
+            xl:w-[300px] xl:h-[70px] 
+            lg:w-[350px] lg:h-[70px] 
+            md:w-[250px] md:h-[50px] 
+            sm:w-[350px] sm:h-[50px] 
+            xs:w-[200px] xs:h-[40px]
+            xl:ml-[76px] xl:mt-[22px] 
+            lg:ml-[70px] lg:mt-[20px] 
+            md:ml-[70px] md:mt-[18px] 
+            sm:ml-[35px] sm:mt-[17px] 
+            xs:ml-[20px] xs:mt-[15px]"
           />
         </div>
 
-        <div className="ml-[80px] mt-[20px]">
-          <Auth />
-          <p className="text-black-darkest text-[15px] pl-[75px]">Or</p>
-          <button className="bg-yellow-yelbg border border-black-border mt-[10px] p-[5px]">
-            Continue with facebook
+        <div className="flex lg:mt-[10px] md:mt-[25px] sm:mt-[20px] xs:mt-[20px]">
+          <p className="md:pl-[75px] sm:pl-[35px] xs:pl-[20px] text-[14px]">
+            Don't have an account?
+          </p>
+          <a href="/signup" className="pl-[25px] underline text-[14px]">
+            Signup
+          </a>
+        </div>
+
+        <div
+          onClick={handleClick}
+          className="sm:ml-[80px] xs:ml-[20px] mt-[20px]"
+        >
+          <button className="bg-yellow-dark w-[200px] h-[40px] rounded-md">
+            Submit
           </button>
+        </div>
+      </form>
+
+      <div className="sm:ml-[75px] sm:mt-[30px] xs:ml-[30px] xs:mt-[20px]">
+        <Auth />
+      </div>
+
+      <div className="ml-[80px] mt-[20px]">
+        <p className="text-black-darkest text-[15px] pt-[0px] sm:pl-[90px] xs:pl-[17px]">
+          Or
+        </p>
+        <button
+          className="bg-white-light border border-black-border 
+        sm:mt-[10px] xs:mt-[12px] sm:w-[190px] sm:h-[50px] sm:text-[13px]
+        sm:ml-[0px] xs:ml-[-50px] xs:w-[190px] xs:h-[35px] xs:text-[12px]
+        "
+        >
+          Continue with Facebook
+        </button>
+        <div
+          className="sm:mt-[-32px] sm:ml-[170px]
+        xs:mt-[-26px] xs:ml-[120px]
+        "
+        >
+          <FaFacebook />
         </div>
       </div>
     </div>

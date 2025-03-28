@@ -15,30 +15,31 @@ import Blog from "./Component/Pages/Blog/Blog";
 import Auth from "./Component/Pages/Auth/Auth";
 import Signin from "./Component/Pages/Signin/Signin";
 import SignUp from "./Component/Pages/SignUp/SignUp";
-import LogOut from "./Component/Pages/LogOut/LogOut";
+import { AuthProvider } from "./Component/Pages/Context/AuthContext";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/navbar" element={<Navbar />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/singleproduct/:id" element={<SingleProduct />} />
-        <Route path="/prodcompare" element={<ProductComparison />} />
-        <Route path="/checkout" element={<CheckOut />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/Logout" element={<LogOut />} />
-      </Routes>
-      <Footer />
+      <AuthProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/navbar" element={<Navbar />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/singleproduct/:id" element={<SingleProduct />} />
+          <Route path="/prodcompare" element={<ProductComparison />} />
+          <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+        <Footer />
+      </AuthProvider>
     </BrowserRouter>
   );
 }
