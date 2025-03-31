@@ -3,15 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa";
 import { useAuth } from "../Context/AuthContext";
 import Auth from "../Auth/Auth";
+import bcrypt from "bcryptjs";
 
-const Signin = () => {
+const Signin = () => {  
   const { setIsSignedIn } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
 
-  const handleSignInSubmit = (e) => {
+  const handleSignInSubmit = async (e) => {
     e.preventDefault();
 
     if (email && password) {
@@ -20,9 +21,26 @@ const Signin = () => {
         alert("Enter valid email address");
         return;
       }
+
+      const storedUser = JSON.parse(localStorage.getItem("user"));
+
+      if (!storedUser) {
+        alert("No User Found! Please Signup first!");
+        return;
+      }
+
+      const isPasswordMatch = await bcrypt.compare(
+        password,
+        storedUser.password
+      );
+
       //set isSignedIn value true for toggle the logout button
-      setIsSignedIn(true);
-      navigate("/");
+      if (isPasswordMatch) {
+        setIsSignedIn(true);
+        navigate("/");
+      } else {
+        alert("Incoreecet email or password");
+      }
     } else {
       alert("Please enter valid details");
     }
@@ -44,7 +62,7 @@ const Signin = () => {
     >
       <div
         className="font-medium text-black-darkest 
-      md:pl-[70px] sm:pl-[35px] xs:pl-[20px]
+      md:pl-[70px] sm:pl-[35px] xs:pl-[20px] pt-[25px]
       lg:text-[30px] md:text-[28px] sm:text-[25px] xs:text-[23px]"
       >
         Sign in
@@ -52,7 +70,7 @@ const Signin = () => {
       <form onSubmit={handleSignInSubmit}>
         <div>
           <p
-            className="sm:pt-[36px] xs:pt-[25px] font-medium text-black-darkest 
+            className="sm:pt-[30px] xs:pt-[25px] font-medium text-black-darkest 
           md:pl-[75px] sm:pl-[35px] xs:pl-[20px] 
           lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px]"
           >
@@ -131,13 +149,16 @@ const Signin = () => {
         <Auth />
       </div>
 
-      <div className="ml-[80px] mt-[20px]">
-        <p className="text-black-darkest text-[15px] pt-[0px] sm:pl-[90px] xs:pl-[17px]">
+      <div className="ml-[80px] mt-[10px]">
+        <p
+          className="text-black-darkest 
+        text-[15px] pt-[0px] sm:pl-[90px] xs:pl-[17px]"
+        >
           Or
         </p>
         <button
           className="bg-white-light border border-black-border 
-        sm:mt-[10px] xs:mt-[12px] sm:w-[190px] sm:h-[50px] sm:text-[13px]
+        sm:mt-[10px] xs:mt-[10px] sm:w-[190px] sm:h-[50px] sm:text-[13px]
         sm:ml-[0px] xs:ml-[-50px] xs:w-[190px] xs:h-[35px] xs:text-[12px]
         "
         >

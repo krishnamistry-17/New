@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import sofa from "../../../assets/images/Sofa.png";
 import dust from "../../../assets/svgs/Delete.svg";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "./Context/CartProvider";
 
 const CartTotal = () => {
   const navigate = useNavigate();
+
+  //get data from context
+  const { cartItems, clearCart, getCartTotal } = useContext(CartContext);
 
   const handleClick = () => {
     navigate("/checkout");

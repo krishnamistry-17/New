@@ -4,6 +4,9 @@ import call from "../../../assets/svgs/Call.svg";
 import clock from "../../../assets/svgs/Clock.svg";
 
 const ContactDetail = () => {
+  const handleMessage = () => {
+    alert("We'll update you soon..");
+  };
   return (
     <div className="font-poppins">
       <div>
@@ -252,6 +255,7 @@ const ContactDetail = () => {
               <button
                 className="bg-yellow-dark rounded-md text-[16px] text-white-light
           lg:w-[237px] lg:h-[55px] py-[13.75px] px-[89px]"
+                onClick={handleMessage}
               >
                 Submit
               </button>

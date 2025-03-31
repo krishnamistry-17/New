@@ -3,18 +3,26 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
 import { FaFacebook } from "react-icons/fa";
 import Auth from "../Auth/Auth";
+import bcrypt from "bcryptjs";
 
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
   const { setIsSignedIn } = useAuth();
 
   const navigate = useNavigate();
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
+
+    if (password != confirmPassword) {
+      alert("Password do not match!!");
+      return;
+    }
 
     if (name && email && number && password) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s]+$/;
@@ -22,6 +30,27 @@ const SignUp = () => {
         alert("Enter valid email address");
         return;
       }
+
+      const numberRegex = /^[0-9]{10,}$/;
+
+      if (!numberRegex.test(number)) {
+        alert("Enter valid number");
+        return;
+      }
+
+      const hashedPassword = await bcrypt.hash(password, 7);
+
+      const user = {
+        name,
+        email,
+        number,
+        password: hashedPassword,
+      };
+
+      localStorage.setItem("user", JSON.stringify(user));
+
+      console.log("User Data (hashed password):", user);
+
       //set isSignedIn value true for toggle the logout button
       setIsSignedIn(true);
       navigate("/signin");
@@ -34,19 +63,23 @@ const SignUp = () => {
     window.scrollTo(0, 0);
   };
 
+  // const handleFaceBook = () => {
+  //   navigate("https://developers.facebook.com/");
+  // };
+
   return (
     <div
       className="bg-cream-bglight 
-    lg:w-[600px] lg:h-[940px] 
-    md:w-[500px] md:h-[850px]
-    sm:w-[441px] sm:h-[830px]
-    xs:w-[300px] xs:h-[700px]
+    lg:w-[600px] lg:h-[1120px] 
+    md:w-[500px] md:h-[980px]
+    sm:w-[441px] sm:h-[955px]
+    xs:w-[300px] xs:h-[820px]
     lg:mt-[20px] md:mt-[30px] sm:mt-[40px] xs:mt-[30px]
     xl:ml-[480px] lg:mx-[215px] md:mx-[140px] sm:mx-[20px] xs:mx-[10px] "
     >
       <div
         className="font-medium text-black-darkest 
-      md:pl-[70px] sm:pl-[35px] xs:pl-[20px]
+      md:pl-[70px] sm:pl-[35px] xs:pl-[20px] pt-[25px]
       lg:text-[30px] md:text-[28px] sm:text-[25px] xs:text-[23px]"
       >
         Sign Up
@@ -146,6 +179,35 @@ const SignUp = () => {
            sm:text-[14px] xs:text-[13px] 
            md:pl-[75px] sm:pl-[35px] xs:pl-[20px] sm:pt-[36px] xs:pt-[25px]"
           >
+            Confirm Password
+          </p>
+          <input
+            type="password"
+            placeholder="confirm password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            className="border border-black-light bg-white-light text-black-light 
+           sm:pl-[25px] xs:pl-[10px]
+            xl:w-[300px] xl:h-[70px] 
+            lg:w-[350px] lg:h-[70px] 
+            md:w-[250px] md:h-[50px] 
+            sm:w-[350px] sm:h-[50px] 
+            xs:w-[260px] xs:h-[40px]
+            xl:ml-[76px] xl:mt-[22px] 
+            lg:ml-[70px] lg:mt-[20px] 
+            md:ml-[70px] md:mt-[18px] 
+            sm:ml-[35px] sm:mt-[17px] 
+            xs:ml-[20px] xs:mt-[15px]"
+          />
+        </div>
+
+        <div>
+          <p
+            className="text-black-darkest font-medium 
+          lg:text-[16px] md:text-[15px]
+           sm:text-[14px] xs:text-[13px] 
+           md:pl-[75px] sm:pl-[35px] xs:pl-[20px] sm:pt-[36px] xs:pt-[25px]"
+          >
             Contact Number
           </p>
           <input
@@ -200,6 +262,7 @@ const SignUp = () => {
         sm:mt-[10px] xs:mt-[12px] sm:w-[190px] sm:h-[50px] sm:text-[13px]
         sm:ml-[0px] xs:ml-[-50px] xs:w-[190px] xs:h-[35px] xs:text-[12px]
         "
+          // onClick={handleFaceBook}
         >
           Continue with Facebook
         </button>
@@ -216,17 +279,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-
-{
-  /*
-  Please find today's work updates below : 
-  Date : 28–03-2025
-  Learning Name:- Authentication
-  -Set google authentication for Signin and Signup Page
-  -Make dummy facebook authentication for signin and signup page
-  -Make responsive Ui for Signin and Signup page for all media screen
-  -Make responsive toggle for signin,signup and logout using context and made custome hook for it.
-  -Add Email validation using Regex for Signin and Signup page
-  Ongoing task - password validation
-  */
-}

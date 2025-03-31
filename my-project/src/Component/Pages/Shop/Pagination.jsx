@@ -70,15 +70,16 @@ const Pagination = ({
 
   return (
     <div
-      className="flex flex-col md:flex-row justify-center 
+      className="flex flex-col lg:flex-row justify-center 
     items-center gap-4 mt-4"
     >
       {/* Previous Button */}
       <button
         className="flex items-center justify-center 
-          md:w-[108px] md:h-[60px] text-[20px]
-          sm:w-[75px] sm:h-[30px]
-          md:rounded-l-lg sm:rounded-l-lg
+          md:w-[108px] md:h-[60px] sm:text-[20px] xs:text-[18px]
+          sm:w-[120px] sm:h-[40px]
+          xs:w-[120px] xs:h-[40px]
+          md:rounded-l-lg sm:rounded-l-lg 
           transition-all
           bg-cream-bg text-black-darkest"
         onClick={goToPreviousPage}
@@ -87,7 +88,7 @@ const Pagination = ({
         Previous
       </button>
 
-      <div className="flex gap-4">
+      <div className="md:flex sm:gap-4 xs:gap-2">
         {pageNumbers.map((number, index) =>
           number === "..." ? (
             <span key={index} className="text-xl text-gray-500">
@@ -99,6 +100,7 @@ const Pagination = ({
               className={`
                 md:w-[60px] md:h-[40px] 
                 sm:w-[50px] sm:h-[30px] 
+                xs:w-[40px] xs:h-[30px]
                 md:px-[16px] md:py-[8px]
                 sm:px-[10px] sm:py-[4px]
                 md:text-lg sm:text-sm 
@@ -121,8 +123,10 @@ const Pagination = ({
       {/* Next Button */}
       <button
         className="flex items-center justify-center 
-          md:w-[98px] md:h-[60px] bg-cream-bg text-black-darkest 
-          md:rounded-r-lg  text-[20px]
+         md:w-[108px] md:h-[60px] sm:text-[20px] xs:text-[18px]
+          sm:w-[120px] sm:h-[40px]
+          xs:w-[120px] xs:h-[40px] bg-cream-bg text-black-darkest 
+          md:rounded-r-lg  
           transition-all"
         onClick={goToNextPage}
       >

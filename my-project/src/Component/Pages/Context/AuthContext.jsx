@@ -14,5 +14,5 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// Create a custom hook
+// Create a custom hook useAuth and start with use
 export const useAuth = () => useContext(AuthContext);

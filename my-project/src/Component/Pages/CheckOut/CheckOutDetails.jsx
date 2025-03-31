@@ -3,6 +3,9 @@ import arrow from "../../../assets/svgs/Down.svg";
 import dark from "../../../assets/svgs/DarkEli.svg";
 import light from "../../../assets/svgs/LightEli.svg";
 const CheckOutDetails = () => {
+  const handleMessage = () => {
+    alert("Your order has been placed");
+  };
   return (
     <div className="bg-white-light w-full h-[1829px] font-poppins">
       <div
@@ -41,7 +44,7 @@ const CheckOutDetails = () => {
                 <input
                   type="text"
                   className=" bg-white-light border border-black-light rounded-lg 
-                  xl:w-[211px] xl:h-[75px] 
+                  xl:w-[211px] xl:h-[75px] pl-[15px]
                   lg:w-[162px] lg:h-[70px]
                   md:w-[120px] md:h-[42px]
                   sm:w-[160px] sm:h-[30px]
@@ -65,7 +68,7 @@ const CheckOutDetails = () => {
                 <input
                   type="text"
                   className=" bg-white-light border border-black-light rounded-lg 
-                  xl:w-[211px] xl:h-[75px] 
+                  xl:w-[211px] xl:h-[75px] pl-[15px]
                   lg:w-[162px] lg:h-[70px]
                   md:w-[120px] md:h-[42px]
                   sm:w-full sm:h-[30px]
@@ -88,7 +91,7 @@ const CheckOutDetails = () => {
               <input
                 type="text"
                 className="bg-white-light border border-black-light rounded-md
-                xl:w-[453px] xl:h-[75px] 
+                xl:w-[453px] xl:h-[75px] pl-[15px]
                 lg:w-[350px] lg:h-[70px]
                 md:w-[250px] md:h-[50px]
                 sm:w-[350px] sm:h-[50px]
@@ -113,7 +116,7 @@ const CheckOutDetails = () => {
               <input
                 type="text"
                 className=" border border-black-light rounded-md bg-white-light text-black-light
-                xl:w-[453px] xl:h-[75px]
+                xl:w-[453px] xl:h-[75px] 
                 lg:w-[350px] lg:h-[70px]
                 md:w-[250px] md:h-[42px]
                  sm:w-[350px] sm:h-[50px]
@@ -123,7 +126,7 @@ const CheckOutDetails = () => {
                 md:ml-[70px] md:mt-[18px]
                 sm:ml-[70px] sm:mt-[17px]
                 xs:mx-[10px] xs:mt-[16px]
-                lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px] pl-[31px] py-[25px]"
+                lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px] pl-[15px] py-[25px]"
                 placeholder="Sri Lanka"
               />
               <img
@@ -149,7 +152,7 @@ const CheckOutDetails = () => {
               <input
                 type="text"
                 className="bg-white-light border border-black-light rounded-md
-                xl:w-[453px] xl:h-[75px] 
+                xl:w-[453px] xl:h-[75px] pl-[15px]
                 lg:w-[350px] lg:h-[70px]
                 md:w-[250px] md:h-[50px]
                  sm:w-[350px] sm:h-[50px]
@@ -173,7 +176,7 @@ const CheckOutDetails = () => {
               <input
                 type="text"
                 className="max-w-full bg-white-light border border-black-light rounded-md
-                xl:w-[453px] xl:h-[75px] 
+                xl:w-[453px] xl:h-[75px] pl-[15px]
                 lg:w-[350px] lg:h-[70px]
                  md:w-[250px] md:h-[50px]
                 sm:w-[350px] sm:h-[50px]
@@ -197,7 +200,7 @@ const CheckOutDetails = () => {
               <input
                 type="text"
                 className=" border border-black-light rounded-md bg-white-light text-black-light
-                xl:w-[453px] xl:h-[75px]
+                xl:w-[453px] xl:h-[75px] 
                 lg:w-[350px] lg:h-[70px]
                 md:w-[250px] md:h-[42px]
                  sm:w-[350px] sm:h-[50px]
@@ -207,7 +210,7 @@ const CheckOutDetails = () => {
                 md:ml-[70px] md:mt-[18px]
                  sm:ml-[70px] sm:mt-[17px]
                 xs:mx-[10px] xs:mt-[16px]
-                xl:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px] pl-[31px] py-[25px]"
+                xl:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px] pl-[15px] py-[25px]"
                 placeholder="Western Province"
               />
               <img
@@ -233,7 +236,7 @@ const CheckOutDetails = () => {
               <input
                 type="number"
                 className="bg-white-light border border-black-light rounded-md
-                xl:w-[453px] xl:h-[75px] 
+                xl:w-[453px] xl:h-[75px] pl-[15px]
                 lg:w-[350px] lg:h-[70px]
                 md:w-[250px] md:h-[50px]
                  sm:w-[350px] sm:h-[50px]
@@ -257,7 +260,7 @@ const CheckOutDetails = () => {
               <input
                 type="number"
                 className="bg-white-light border border-black-light rounded-md
-                xl:w-[453px] xl:h-[75px] 
+                xl:w-[453px] xl:h-[75px] pl-[15px]
                 lg:w-[350px] lg:h-[70px]
                  md:w-[250px] md:h-[50px]
                   sm:w-[350px] sm:h-[50px]
@@ -281,7 +284,7 @@ const CheckOutDetails = () => {
               <input
                 type="email"
                 className="bg-white-light border border-black-light rounded-md
-                xl:w-[453px] xl:h-[75px] 
+                xl:w-[453px] xl:h-[75px] pl-[15px]
                 lg:w-[350px] lg:h-[70px]
                  md:w-[250px] md:h-[50px]
                   sm:w-[350px] sm:h-[50px]
@@ -309,7 +312,7 @@ const CheckOutDetails = () => {
                 md:ml-[70px] md:mt-[25px]
                 sm:ml-[70px] sm:mt-[22px]
                 xs:mx-[10px] xs:mt-[20px]
-                pl-[29px] py-[25px]
+                pl-[15px] py-[25px]
                 "
                 placeholder="Additional information"
               />
@@ -507,6 +510,7 @@ const CheckOutDetails = () => {
                 xs:w-[200px] xs:h-[40px]
                 md:px-[102px] md:py-[17px] border rounded-lg border-black-darkest 
                 lg:text-[20px] md:text-[15px] sm:text-[14px] xs:text-[13px] text-black-darkest"
+                  onClick={handleMessage}
                 >
                   Place order
                 </button>
