@@ -235,7 +235,7 @@ const BlogDetail = () => {
                 <input
                   type="text"
                   className="bg-white-light border border-black-light rounded-md
-                  xl:w-[311px] xl:h-[58px]
+                  xl:w-[311px] xl:h-[58px] pl-[20px]
                   lg:w-[300px] lg:h-[50px]
                   md:w-[285px] md:h-[50px]
                   sm:w-[200px] sm:h-[45px]
@@ -246,6 +246,7 @@ const BlogDetail = () => {
                   sm:mx-[28px] sm:mt-[15px]
                   xs:mx-[10px] xs:mt-[15px]
                   "
+                  placeholder="Search"
                 />
                 <img
                   src={search}

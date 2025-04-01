@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import sofa from "../../../assets/images/Sofa.png";
 import dust from "../../../assets/svgs/Delete.svg";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "./Context/CartProvider";
@@ -14,8 +13,16 @@ const CartTotal = () => {
     navigate("/checkout");
   };
 
+  const handleDelete = () => {
+    clearCart();
+  };
+
+  const handleTotal = () => {
+    getCartTotal();
+  };
+
   return (
-    <div className="bg-white-light h-[547] font-poppins">
+    <div className="bg-white-light h-[700px] font-poppins">
       <div
         className="bg-white-light 
       xl:mx-[100px] xl:mt-[72px] xl:mb-[85px]
@@ -25,14 +32,14 @@ const CartTotal = () => {
 
       "
       >
-        <div className="sm:flex">
+        <div className="md:flex">
           {/*left */}
           <div
             className=" 
           xl:w-[817px] xl:h-[55px]
           lg:w-[600px] lg:h-[55px]
           md:w-[400px] md:h-[55px]
-          sm:w-[291px] sm:h-[55px]
+          sm:w-full sm:h-[55px]
           bg-cream-bglight 
           xl:mr-[30px] lg:mr-[20px]
            md:mr-[20px] sm:mr-[3px]"
@@ -40,7 +47,7 @@ const CartTotal = () => {
             <div
               className="sm:flex 
             xl:pl-[142px] xl:pt-[15px] xl:pb-[16px]
-            lg:pl-[50px] lg:py-[15px]
+            lg:pl-[115px] lg:py-[15px]
             md:pl-[40px] md:py-[15px]
             sm:pl-[10px] sm:py-[15px]
             xs:pl-[25px] xs:pt-[23px] 
@@ -76,7 +83,7 @@ const CartTotal = () => {
                   className="font-medium 
                md:text-[16px]
                sm:text-[14px] xs:text-[14px]
-                xl:pl-[137px] lg:pl-[90px]
+                xl:pl-[137px] lg:pl-[70px]
                 md:pl-[50px] sm:pl-[40px] xs:pl-[0px] sm:pt-[0px] xs:pt-[16px]
                 text-black-darkest"
                 >
@@ -98,92 +105,99 @@ const CartTotal = () => {
               </div>
             </div>
 
-            <div className="sm:flex">
-              <div
-                className="bg-cream-bglight rounded-lg
-              xl:w-[105px] xl:h-[95px]  
-              lg:w-[80px] lg:h-[66px]
-              md:w-[70px] md:h-[60px]
-              sm:w-[60px] sm:h-[43px]
-              xs:w-[96px] xs:h-[35px]
-              xl:mt-[55px] lg:mt-[58px] md:mt-[60px] sm:mt-[50px] xs:mt-[-210px] sm:ml-[0px] xs:ml-[10px]"
-              >
-                <img src={sofa} alt="sofa" className="py-[8px] px-[3px]" />
-              </div>
-
-              <div className="sm:mt-[0px] sm:ml-[0px] xs:mt-[48px] xs:ml-[95px]">
-                <p
-                  className="text-black-light
-                xl:text-[16px]  lg:text-[15px] md:text-[14px] sm:text-[12px] xs:text-[12px]
-                xl:pl-[34px] lg:pl-[20px] md:pl-[10px] sm:pl-[5px] xs:pl-[5px]
-                xl:pt-[100px] lg:pt-[75px] md:pt-[65px] sm:pt-[55px] xs:pt-[0px]
-                "
-                >
-                  Asgaard sofa
-                </p>
-              </div>
-              <div className="sm:ml-[0px] xs:ml-[86px]">
-                <p
-                  className="text-black-light 
-                xl:text-[16px] lg:text-[15px] md:text-[14px] sm:text-[12px] xs:text-[12px]
-                xl:pl-[69px] lg:pl-[20px] md:pl-[10px] sm:pl-[5px] xs:pl-[15px]
-                xl:pt-[100px] lg:pt-[75px] md:pt-[65px] sm:pt-[55px] xs:pt-[15px]
-                "
-                >
-                  Rs. 250,000.00
-                </p>
-              </div>
-
-              <div
-                className="
-              xl:pt-[100px] xl:pl-[80px] 
-              lg:pt-[75px] lg:pl-[47px] 
-              md:pt-[65px] md:pl-[0px]
-              sm:pt-[55px] sm:pl-[15px]
-              xs:pt-[15px] xs:pl-[19px] sm:ml-[0px] xs:ml-[81px]
-              "
-              >
-                <button
+            {cartItems.map((item, index) => (
+              <div key={index} className="sm:flex">
+                <div
                   className="
-                md:w-[32px] md:h-[32px]
-                sm:w-[29px] sm:h-[29px]
-                xs:w-[30px] xs:h-[28px]
-                border rounded-lg"
+                xl:w-[105px] xl:h-[95px]  
+                lg:w-[80px] lg:h-[66px]
+                md:w-[70px] md:h-[60px]
+                sm:w-[60px] sm:h-[43px]
+                xs:w-[96px] xs:h-[35px]
+                xl:mt-[55px] lg:mt-[42px] md:mt-[40px] sm:mt-[50px] xs:mt-[-210px] lg:ml-[0px] md:ml-[2px] xs:ml-[10px]"
                 >
-                  1
-                </button>
-              </div>
-              <div className=" sm:ml-[0px] xs:ml-[78px]">
-                <p
-                  className="text-black-darkest
-                xl:text-[16px] lg:text-[15px] md:text-[14px] sm:text-[12px] xs:text-[12px]
-                xl:pl-[70px] lg:pl-[38px] md:pl-[20px] sm:pl-[15px] xs:pl-[18px]
-                xl:pt-[100px] lg:pt-[75px] md:pt-[65px] sm:pt-[55px] xs:pt-[15px]"
+                  <img
+                    src={item.image}
+                    alt={item.heading}
+                    className="py-[8px] px-[3px]"
+                  />
+                </div>
+
+                <div className="sm:mt-[0px] sm:ml-[22px] xs:mt-[48px] xs:ml-[95px]">
+                  <p
+                    className="text-black-light
+                  xl:text-[16px]  lg:text-[15px] md:text-[14px] sm:text-[12px] xs:text-[12px]
+                  xl:pl-[34px] lg:pl-[20px] md:pl-[10px] sm:pl-[5px] xs:pl-[5px]
+                  xl:pt-[100px] lg:pt-[75px] md:pt-[65px] sm:pt-[55px] xs:pt-[0px]
+                  "
+                  >
+                    {item.heading}
+                  </p>
+                </div>
+                <div className="sm:ml-[0px] xs:ml-[86px]">
+                  <p
+                    className="text-black-light 
+                  xl:text-[16px] lg:text-[15px] md:text-[14px] sm:text-[12px] xs:text-[12px]
+                  xl:pl-[80px] lg:pl-[73px] md:pl-[10px] sm:pl-[5px] xs:pl-[15px]
+                  xl:pt-[100px] lg:pt-[75px] md:pt-[65px] sm:pt-[55px] xs:pt-[15px]
+                  "
+                  >
+                    {item.price}
+                  </p>
+                </div>
+
+                <div
+                  className="
+                xl:pt-[100px] xl:ml-[67px] 
+                lg:pt-[75px] lg:pl-[47px] 
+                md:pt-[65px] md:pl-[0px]
+                sm:pt-[55px] sm:pl-[15px]
+                xs:pt-[15px] xs:pl-[19px] sm:ml-[0px] xs:ml-[81px]
+                "
                 >
-                  Rs. 250,000.00
-                </p>
+                  <button
+                    className="
+                  md:w-[32px] md:h-[32px]
+                  sm:w-[29px] sm:h-[29px]
+                  xs:w-[30px] xs:h-[28px]
+                  border rounded-lg"
+                  >
+                    {item.quantity}
+                  </button>
+                </div>
+                <div className=" sm:ml-[0px] xs:ml-[78px]">
+                  <p
+                    className="text-black-darkest
+                  xl:text-[16px] lg:text-[15px] md:text-[14px] sm:text-[12px] xs:text-[12px]
+                  xl:pl-[70px] lg:pl-[45px] md:pl-[20px] sm:pl-[15px] xs:pl-[18px]
+                  xl:pt-[100px] lg:pt-[75px] md:pt-[65px] sm:pt-[55px] xs:pt-[15px]"
+                  >
+                    {`Rs. ${item.price * item.quantity}`}
+                  </p>
+                </div>
+                <div
+                  className="
+                xl:ml-[65px] xl:mt-[97px]
+                lg:ml-[36px] lg:mt-[75px]
+                md:ml-[10px] md:mt-[65px]
+                sm:ml-[5px] sm:mt-[55px]
+                xs:ml-[160px] xs:mt-[-63px]
+                "
+                >
+                  <img onClick={handleDelete} src={dust} alt="distbn" />
+                </div>
               </div>
-              <div
-                className="
-              xl:ml-[49px] xl:mt-[97px]
-              lg:ml-[20px] lg:mt-[75px]
-              md:ml-[10px] md:mt-[65px]
-              sm:ml-[5px] sm:mt-[55px]
-              xs:ml-[160px] xs:mt-[-63px]
-              "
-              >
-                <img src={dust} alt="distbn" />
-              </div>
-            </div>
+            ))}
           </div>
 
           {/*right */}
           <div
-            className="
+            className="flex-wrap
           xl:w-[393px] xl:h-[390px]
           lg:w-[350px] lg:h-[323px]
           md:w-[300px] md:h-[280px]
-          sm:w-[180px] sm:h-[230px]
+          sm:w-full sm:h-[230px]
+          md:mt-[0px] sm:mt-[25px]
           bg-cream-bglight"
           >
             <h2
@@ -230,7 +244,7 @@ const CartTotal = () => {
                   className="text-black-light
                 lg:text-[16px] md:text-[15px] sm:text-[13px] xs:text-[13px] "
                 >
-                  Rs. 250,000.00
+                  {`Rs. ${handleTotal()}`}
                 </p>
               </div>
             </div>
@@ -264,7 +278,7 @@ const CartTotal = () => {
                   className="font-medium text-yellow-dark 
                 lg:text-[20px] md:text-[18px] sm:text-[12px] xs:text-[14px]"
                 >
-                  Rs. 250,000.00
+                  {`Rs. ${handleTotal()}`}
                 </p>
               </div>
             </div>

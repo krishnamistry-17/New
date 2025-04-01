@@ -6,7 +6,7 @@ import star from "../../../assets/svgs/Star.svg";
 import starh from "../../../assets/svgs/StarH.svg";
 import { useNavigate, useParams } from "react-router-dom";
 import linep from "../../../assets/svgs/LineP.svg";
-import product1 from "../../../assets/images/sofa.png";
+import product1 from "../../../assets/images/product1.png";
 import product2 from "../../../assets/images/product2.png";
 import product3 from "../../../assets/images/product3.png";
 import product4 from "../../../assets/images/product4.png";
@@ -482,11 +482,7 @@ const SingleProduct = () => {
   const handleIncrease = () => setCount((prevCount) => prevCount + 1);
 
   const handleAddToCart = () => {
-    if (product) {
-      addToCart({ ...product, quantity: count });
-      console.log("Product added to cart:", { ...product, quantity: count });
-      console.log(product);
-    }
+    addToCart(product);
   };
 
   if (!product) {
