@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import dust from "../../../assets/svgs/Delete.svg";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "./Context/CartProvider";
@@ -7,18 +7,37 @@ const CartTotal = () => {
   const navigate = useNavigate();
 
   //get data from context
-  const { cartItems, clearCart, getCartTotal } = useContext(CartContext);
+  const { cartItems, removeItem, updateItemQuantity } = useContext(CartContext);
 
+  const [subtotal, setSubTotal] = useState(0);
   const handleClick = () => {
     navigate("/checkout");
   };
 
-  const handleDelete = () => {
-    clearCart();
+  useEffect(() => {
+    console.log("cartItems", cartItems);
+    if (cartItems.length === 0) {
+      setSubTotal(0);
+      console.log("cart is empty");
+      return;
+    }
+    const calculatedSubTotal = cartItems.reduce((acc, item) => {
+      const priceWithoutRp = item.price.replace("Rp.", ""); // Remove "Rp."
+      return acc + priceWithoutRp * item.quantity;
+    }, 0);
+    console.log("calculatedsubtotal", calculatedSubTotal);
+    setSubTotal(calculatedSubTotal);
+  }, [cartItems]);
+
+  const handleDelete = (id) => {
+    removeItem(id);
   };
 
-  const handleTotal = () => {
-    getCartTotal();
+  const handleQuantityChange = (id, newQuantity) => {
+    if (newQuantity >= 1) {
+      updateItemQuantity(id, newQuantity);
+    }
+    console.log(newQuantity);
   };
 
   return (
@@ -105,7 +124,7 @@ const CartTotal = () => {
               </div>
             </div>
 
-            {cartItems.map((item, index) => (
+            {cartItems?.map((item, index) => (
               <div key={index} className="sm:flex">
                 <div
                   className="
@@ -113,12 +132,12 @@ const CartTotal = () => {
                 lg:w-[80px] lg:h-[66px]
                 md:w-[70px] md:h-[60px]
                 sm:w-[60px] sm:h-[43px]
-                xs:w-[96px] xs:h-[35px]
+                xs:w-[72px] xs:h-[35px]
                 xl:mt-[55px] lg:mt-[42px] md:mt-[40px] sm:mt-[50px] xs:mt-[-210px] lg:ml-[0px] md:ml-[2px] xs:ml-[10px]"
                 >
                   <img
-                    src={item.image}
-                    alt={item.heading}
+                    src={item?.image}
+                    alt={item?.heading}
                     className="py-[8px] px-[3px]"
                   />
                 </div>
@@ -155,15 +174,25 @@ const CartTotal = () => {
                 xs:pt-[15px] xs:pl-[19px] sm:ml-[0px] xs:ml-[81px]
                 "
                 >
-                  <button
-                    className="
-                  md:w-[32px] md:h-[32px]
-                  sm:w-[29px] sm:h-[29px]
-                  xs:w-[30px] xs:h-[28px]
-                  border rounded-lg"
-                  >
-                    {item.quantity}
-                  </button>
+                  <div className="flex items-center">
+                    <button
+                      className="border rounded-lg px-2 py-1"
+                      onClick={() =>
+                        handleQuantityChange(item.id, item.quantity - 1)
+                      }
+                    >
+                      -
+                    </button>
+                    <span className="mx-2">{item.quantity}</span>
+                    <button
+                      className="border rounded-lg px-2 py-1"
+                      onClick={() =>
+                        handleQuantityChange(item.id, item.quantity + 1)
+                      }
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
                 <div className=" sm:ml-[0px] xs:ml-[78px]">
                   <p
@@ -172,7 +201,7 @@ const CartTotal = () => {
                   xl:pl-[70px] lg:pl-[45px] md:pl-[20px] sm:pl-[15px] xs:pl-[18px]
                   xl:pt-[100px] lg:pt-[75px] md:pt-[65px] sm:pt-[55px] xs:pt-[15px]"
                   >
-                    {`Rs. ${item.price * item.quantity}`}
+                    {`Rs. ${item.price.replace("Rp.", "") * item.quantity}`}
                   </p>
                 </div>
                 <div
@@ -184,7 +213,11 @@ const CartTotal = () => {
                 xs:ml-[160px] xs:mt-[-63px]
                 "
                 >
-                  <img onClick={handleDelete} src={dust} alt="distbn" />
+                  <img
+                    onClick={() => handleDelete(item.id)}
+                    src={dust}
+                    alt="distbn"
+                  />
                 </div>
               </div>
             ))}
@@ -244,7 +277,7 @@ const CartTotal = () => {
                   className="text-black-light
                 lg:text-[16px] md:text-[15px] sm:text-[13px] xs:text-[13px] "
                 >
-                  {`Rs. ${handleTotal()}`}
+                  Rs.{subtotal}
                 </p>
               </div>
             </div>
@@ -277,9 +310,7 @@ const CartTotal = () => {
                 <p
                   className="font-medium text-yellow-dark 
                 lg:text-[20px] md:text-[18px] sm:text-[12px] xs:text-[14px]"
-                >
-                  {`Rs. ${handleTotal()}`}
-                </p>
+                ></p>
               </div>
             </div>
 
