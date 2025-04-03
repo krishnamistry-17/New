@@ -451,36 +451,7 @@ export const CartProvider = ({ children }) => {
     cart: [],
   });
 
-  const increase = (item) => {
-    setState({
-      ...state,
-      cart: state.cart.map((cartItem) =>
-        cartItem.id === item.id
-          ? { ...cartItem, quantity: cartItem.quantity + 1 }
-          : cartItem
-      ),
-    });
-  };
 
-  const decrease = (item) => {
-    setState({
-      ...state,
-      cart: state.cart.map((cartItem) =>
-        cartItem.id === item.id
-          ? {
-              ...cartItem,
-              quantity: cartItem.quantity > 1 ? cartItem.quantity - 1 : 1,
-            }
-          : cartItem
-      ),
-    });
-  };
-
-  // const updateItemQuantity = (id, newQuantity) => {
-  //   setCartItems((prevItems) =>
-  //     prevItems.map((item) => (item.id === id ? { ...item, quantity } : item))
-  //   );
-  // };
   const updateItemQuantity = (id, newQuantity) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
@@ -543,8 +514,6 @@ export const CartProvider = ({ children }) => {
       value={{
         state: state,
         cartItems,
-        increase,
-        decrease,
         updateItemQuantity,
         addToCart,
         removeFromCart,
