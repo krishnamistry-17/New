@@ -9,6 +9,9 @@ import product6 from "../../../../assets/images/product6.png";
 import product7 from "../../../../assets/images/product7.png";
 import product8 from "../../../../assets/images/product8.png";
 
+{
+  /*Total data are 40 with id */
+}
 const data = [
   {
     id: 1,
@@ -450,7 +453,6 @@ export const CartProvider = ({ children }) => {
     data: data,
     cart: [],
   });
-
 
   const updateItemQuantity = (id, newQuantity) => {
     setCartItems((prevItems) =>

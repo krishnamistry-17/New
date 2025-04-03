@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Profile from "../../assets/svgs/Profile.svg";
 import Search from "../../assets/svgs/Search.svg";
 import Favourite from "../../assets/svgs/Favourite.svg";
@@ -6,13 +6,23 @@ import Cart from "../../assets/svgs/Cart.svg";
 import Logo from "../../assets/svgs/Logo.svg";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Pages/Context/AuthContext";
+import { CartContext } from "../Pages/Cart/Context/CartProvider";
 
 const Navbar = () => {
   const navigate = useNavigate();
+
   //using auth context
+
   const { isSignedIn, setIsSignedIn } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+
+  const { cartItems } = useContext(CartContext);
+
+  const totalQuantity = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -183,8 +193,29 @@ const Navbar = () => {
             src={Cart}
             alt="Cart"
             onClick={handleCart}
-            className="w-[24px] h-[24px] md:ml-[15px] sm:ml-[26px] xs:ml-[20px]"
+            className="w-[24px] relative h-[24px] md:ml-[15px] sm:ml-[26px] xs:ml-[20px]"
           />
+          {totalQuantity > 0 &&
+            cartItems.map((index) => (
+              <div key={index}>
+                {/*Circle*/}
+                <div>
+                  <span
+                    className="absolute 
+              xl:top-[23px] xl:right-[194px]
+              lg:top-[25px] lg:right-[57px]
+              md:top-[14px] md:right-[15px]
+              sm:top-[12px] sm:right-[113px]
+              xs:top-[3px] xs:right-[61px]
+              pl-[8px] pt-[0px] pb-[24px]
+              h-[20px] w-[25px] 
+               bg-red-700 rounded-full"
+                  >
+                    {totalQuantity}
+                  </span>
+                </div>
+              </div>
+            ))}
         </div>
 
         {/* Menu button for mobile */}

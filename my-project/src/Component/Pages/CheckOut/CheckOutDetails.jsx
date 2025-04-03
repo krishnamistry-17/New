@@ -1,11 +1,48 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import arrow from "../../../assets/svgs/Down.svg";
 import dark from "../../../assets/svgs/DarkEli.svg";
-import light from "../../../assets/svgs/LightEli.svg";
-const CheckOutDetails = () => {
+// import light from "../../../assets/svgs/LightEli.svg";
+import { CartContext } from "../Cart/Context/CartProvider";
+
+const CheckOutDetails = ({ onSelect }) => {
+  const [total, setTotal] = useState(0);
+  const [subtotal, setSubTotal] = useState(0);
+  const { isSelected, setIsSelected } = useState("");
+
   const handleMessage = () => {
     alert("Your order has been placed");
   };
+
+  const handleMethodChange = (e) => {
+    setIsSelected(e.target.value);
+    onSelect(e.target.value);
+  };
+
+  const { cartItems } = useContext(CartContext);
+
+  useEffect(() => {
+    console.log("cartItems", cartItems);
+    if (cartItems.length === 0) {
+      setSubTotal(0);
+      console.log("cart is empty");
+      return;
+    }
+
+    const calculatedSubTotal = cartItems.reduce((acc, item) => {
+      const priceWithoutRp = item.price.replace("Rp.", ""); // Remove "Rp."
+      return acc + priceWithoutRp * item.quantity; //for this total is reepeated
+    }, 0);
+
+    setSubTotal(calculatedSubTotal);
+    console.log("calculated subtotal", calculatedSubTotal);
+
+    const calculatedTotal = calculatedSubTotal;
+
+    setTotal(calculatedTotal);
+    console.log("calculated Total :", calculatedTotal);
+    console.log("check for multiple render");
+  }, [cartItems]);
+
   return (
     <div className="bg-white-light w-full h-[1829px] font-poppins">
       <div
@@ -326,9 +363,9 @@ const CheckOutDetails = () => {
           md:mt-[63px] sm:mt-[-436px] xs:mt-[-413px]"
           >
             <div
-              className="bg-white-light lg:w-[533px] h-[616px] 
+              className="bg-white-light lg:w-[533px] h-[800px] 
             md:px-[38px] md:py-[87px]
-            sm:px-[70px] sm:py-[30px]
+            sm:px-[70px] sm:py-[30px] md:mb-[0px] sm:mb-[25px]
             xs:px-[30px] xs:py-[20px]
             "
             >
@@ -356,95 +393,88 @@ const CheckOutDetails = () => {
                   </h2>
                 </div>
               </div>
-              <div className="flex">
-                <div className="flex md:pt-[14px] sm:pt-[13px] xs:pt-[12px]">
-                  <p
-                    className="text-black-light 
-                  md:text-[16px] sm:text-[15px] xs:text-[14px] "
-                  >
-                    Asgaard sofa
-                  </p>
-                  <p
-                    className="pl-[9px] pt-[1px] font-medium text-black-darkest 
-                  md:text-[15px] sm:text-[14px] xs:text-[13px]"
-                  >
-                    X
-                  </p>
-                  <p
-                    className="pl-[10px] pt-[1px] font-medium text-black-darkest 
-                  md:text-[16px] sm:text-[15px] xs:text-[14px]"
-                  >
-                    1
-                  </p>
-                </div>
-                <div className="">
-                  <p
-                    className="text-black-darkest font-light 
-                    md:text-[16px] sm:text-[15px] xs:text-[14px]
-                  lg:pl-[217px] lg:pt-[14px] 
-                  md:pl-[85px] md:pt-[14px]
-                  sm:pl-[70px] sm:pt-[13px]
-                  xs:pl-[42px] xs:pt-[12px]
-                  "
-                  >
-                    Rs. 250,000.00
-                  </p>
-                </div>
-                <div>
-                  <p></p>
-                </div>
-              </div>
-              <div className="flex">
-                <div>
-                  <p
-                    className="
-                  lg:pt-[22px] md:pt-[20px]
-                  sm:pt-[13px] xs:pt-[13px]
-                  text-black-darkest 
-                  md:text-[16px] sm:text-[15px] xs:text-[14px]"
-                  >
-                    Subtotal
-                  </p>
-                </div>
-                <div>
-                  <p
-                    className="font-light text-black-darkest 
-                  md:text-[16px] sm:text-[15px] xs:text-[14px]
-                  lg:pt-[22px] lg:pl-[290px]
-                  md:pt-[20px] md:pl-[158px]
-                  sm:pt-[15px] sm:pl-[139px]
-                  xs:pt-[15px] xs:pl-[110px]
-                  "
-                  >
-                    Rs. 250,000.00
-                  </p>
-                </div>
-              </div>
-              <div className="flex">
-                <div>
-                  <p
-                    className="text-black-darkest 
-                  md:text-[16px] sm:text-[15px] xs:text-[14px] 
-                  md:pt-[22px] sm:pt-[20px] xs:pt-[18px]"
-                  >
-                    Total
-                  </p>
-                </div>
-                <div>
-                  <h2
-                    className="text-yellow-dark font-bold 
-                    lg:text-[24px] md:text-[22px]
-                    sm:text-[20px] xs:text-[18px]
-                    pt-[16px] 
-                    lg:pl-[259px] md:pl-[155px]
-                    sm:pl-[130px] xs:pl-[100px]
+
+              {cartItems.map((item, index) => (
+                <div key={index}>
+                  <div className="flex">
+                    <div className="flex md:pt-[14px] sm:pt-[13px] xs:pt-[12px]">
+                      <p
+                        className="text-black-light 
+                   lg:text-[20px] md:text-[16px] sm:text-[15px] xs:text-[14px] "
+                      >
+                        {item.heading}
+                      </p>
+                      <p
+                        className="pl-[9px] pt-[5px] font-medium text-black-darkest 
+                    md:text-[15px] sm:text-[14px] xs:text-[13px]"
+                      >
+                        X
+                      </p>
+                      <p
+                        className="pl-[10px] pt-[2px] font-medium text-black-darkest 
+                     lg:text-[20px] md:text-[16px] sm:text-[15px] xs:text-[14px]"
+                      >
+                        {item.quantity}
+                      </p>
+                    </div>
+                    <div>
+                      <p
+                        className="text-black-darkest font-light 
+                    lg:text-[20px]  md:text-[16px] sm:text-[15px] xs:text-[14px]
+                    lg:pl-[255px] lg:pt-[14px] 
+                    md:pl-[130px] md:pt-[14px]
+                    sm:pl-[113px] sm:pt-[13px]
+                    xs:pl-[78px] xs:pt-[12px]
                     "
-                  >
-                    Rs. 250,000.00
-                  </h2>
+                      >
+                        {`Rs. ${item.price.replace("Rp.", "") * item.quantity}`}
+                      </p>
+                    </div>
+                  </div>
                 </div>
+              ))}
+
+              <div>
+                <p
+                  className="
+                    lg:pt-[22px] md:pt-[15px]
+                    sm:pt-[13px] xs:pt-[13px]
+                    text-black-darkest 
+                    lg:text-[24px] md:text-[20px] sm:text-[19px] xs:text-[17px]"
+                >
+                  SubTotal{" "}
+                  <span
+                    className="text-black-darkest 
+                  lg:text-[24px] lg:pl-[261px]
+                  md:text-[20px] md:pl-[133px]
+                  sm:text-[19px] xs:text-[17px] sm:pl-[117px] xs:pl-[91px]
+                  "
+                  >
+                    Rs.{subtotal}
+                  </span>
+                </p>
+                <p
+                  className="text-black-darkest 
+                   lg:text-[27px] md:text-[20px] sm:text-[20px] xs:text-[20px] 
+                    md:pt-[12px] sm:pt-[9px] xs:pt-[10px]"
+                >
+                  Total{" "}
+                  <span
+                    className="text-yellow-dark font-bold 
+                      lg:text-[27px] md:text-[22px]
+                      sm:text-[22px] xs:text-[22px]
+                      pt-[16px] 
+                      lg:pl-[280px] md:pl-[155px]
+                      sm:pl-[131px] xs:pl-[100px]
+                      "
+                  >
+                    Rs.{total}
+                  </span>
+                </p>
               </div>
+
               <hr className="border-black-border mt-[39.5px]" />
+
               <div className=" flex">
                 <img src={dark} alt="de" className="mt-[27px]" />
                 <p
@@ -469,25 +499,70 @@ const CheckOutDetails = () => {
                 your Order ID as the payment reference. Your order will not be
                 shipped until the funds have cleared in our account.
               </p>
-              <div className="flex">
-                <img src={light} alt="le" className="mt-[25px]" />
-                <p
-                  className="pl-[15px] font-medium text-black-light 
+
+              <div>
+                <div className="flex">
+                  <input
+                    type="radio"
+                    className="mt-[25px]"
+                    onChange={handleMethodChange}
+                  />
+                  <p
+                    className="mt-[25px] pl-[15px] font-medium text-black-light 
+                lg:text-[16px] md:text-[14px] sm:text-[13px] xs:text-[12px]"
+                  >
+                    {" "}
+                    Direct Bank Transfer
+                  </p>
+                </div>
+                <div className="flex">
+                  <input
+                    type="radio"
+                    className="mt-[12px]"
+                    onChange={handleMethodChange}
+                  />
+                  <p
+                    className="pl-[15px] font-medium text-black-light 
+                lg:text-[16px] md:text-[14px] sm:text-[13px] xs:text-[12px] pt-[12px]"
+                  >
+                    {" "}
+                    Cash On Delivery
+                  </p>
+                </div>
+              </div>
+
+              {/* <div>
+                <div className="flex">
+                  <img
+                    onClick={handleSelect}
+                    src={light}
+                    alt="le"
+                    className="mt-[25px]"
+                  />
+                  <p
+                    className="pl-[15px] font-medium text-black-light 
                 lg:text-[16px] md:text-[14px] sm:text-[13px] xs:text-[12px]
                  pt-[27px]"
-                >
-                  Direct Bank Transfer{" "}
-                </p>
-              </div>
-              <div className="flex">
-                <img src={light} alt="le" className="mt-[12px]" />
-                <p
-                  className="pl-[15px] font-medium text-black-light 
+                  >
+                    Direct Bank Transfer{" "}
+                  </p>
+                </div>
+                <div className="flex">
+                  <img
+                    onClick={handleSelect}
+                    src={light}
+                    alt="le"
+                    className="mt-[12px]"
+                  />
+                  <p
+                    className="pl-[15px] font-medium text-black-light 
                 lg:text-[16px] md:text-[14px] sm:text-[13px] xs:text-[12px] pt-[11px]"
-                >
-                  Cash On Delivery{" "}
-                </p>
-              </div>
+                  >
+                    Cash On Delivery{" "}
+                  </p>
+                </div>
+              </div> */}
+
               <p
                 className="pt-[22px] font-light text-black-darkest 
               lg:text-[16px] md:text-[14px] sm:text-[13px] xs:text-[12px] 

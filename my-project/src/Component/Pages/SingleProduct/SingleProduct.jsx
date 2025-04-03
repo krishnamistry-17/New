@@ -446,13 +446,15 @@ const SingleProduct = () => {
     },
   ];
 
+  const [flag, setFlag] = useState(0);
+
   const [posts, setPosts] = useState([]);
   const [quantity, setQuantity] = useState(0);
 
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const { addToCart, increase, decrease } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
 
   const product = data.find((item) => item.id === parseInt(id));
 
@@ -478,6 +480,7 @@ const SingleProduct = () => {
 
   const handleAddToCart = () => {
     addToCart({ ...product, quantity });
+    setFlag(true);
   };
 
   const handleIncrease = () => {
