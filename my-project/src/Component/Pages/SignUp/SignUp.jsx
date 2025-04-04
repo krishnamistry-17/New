@@ -4,7 +4,7 @@ import { useAuth } from "../Context/AuthContext";
 import { FaFacebook } from "react-icons/fa";
 import Auth from "../Auth/Auth";
 import bcrypt from "bcryptjs";
-import { Field, Formik } from "formik";
+import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 
 const SignUp = () => {
@@ -104,7 +104,7 @@ const SignUp = () => {
         })}
       >
         {({ errors, touched }) => (
-          <form onSubmit={handleFormSubmit}>
+          <Form onSubmit={handleFormSubmit}>
             <div>
               <p
                 className="sm:pt-[36px] xs:pt-[25px] font-medium text-black-darkest 
@@ -293,7 +293,7 @@ const SignUp = () => {
                 Submit
               </button>
             </div>
-          </form>
+          </Form>
         )}
       </Formik>
 

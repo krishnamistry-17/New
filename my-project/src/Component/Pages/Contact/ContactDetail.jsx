@@ -198,7 +198,7 @@ const ContactDetail = () => {
           {({ errors, touched }) => (
             <form onSubmit={handleSubmit}>
               <div
-                className="bg-white-light 
+                className="bg-white-light  
     xl:w-[635px] xl:h-[923px]
     lg:w-[500px] lg:h-[800px]
     md:w-[430px] md:h-[700px]
@@ -215,7 +215,7 @@ const ContactDetail = () => {
       xs:w-[100%] xs:h-[545px]
       xl:mx-[52px] lg:mx-[40px] md:mx-[30px] 
       lg:my-[40px] md:my-[40px] sm:my-[0px] xs:my-[20px]
-      xl:mt-[119px] xl:mb-[63px]
+     xl:mb-[63px]
     "
                 >
                   <div>

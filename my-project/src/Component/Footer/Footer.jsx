@@ -1,6 +1,33 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleHome = () => {
+    navigate("/");
+    window.scrollTo(0, 0);
+  };
+  const handleShop = () => {
+    navigate("/shop");
+    window.scrollTo(0, 0);
+  };
+  const handleAbout = () => {
+    navigate("/about");
+    window.scrollTo(0, 0);
+  };
+  const handleContact = () => {
+    navigate("/contact");
+    window.scrollTo(0, 0);
+  };
+  const handlePayment = () => {
+    navigate("/checkout");
+    window.scrollTo(0, 600);
+  };
+  const handleSub = () => {
+    navigate("/signup");
+    window.scrollTo(0, 0);
+  };
   return (
     <>
       <div className="mt-[30px]">
@@ -42,6 +69,7 @@ const Footer = () => {
               text-[16px] sm:text-[14px] 
               xs:text-[12px] 
               font-medium lg:pb-[20px] md:pb-[16px] xs:pb-[8px]"
+                onClick={handleHome}
               >
                 Home
               </p>
@@ -51,6 +79,7 @@ const Footer = () => {
                xs:text-[12px]
                 font-medium
                  lg:pb-[20px] md:pb-[16px] xs:pb-[8px]"
+                onClick={handleShop}
               >
                 Shop
               </p>
@@ -60,6 +89,7 @@ const Footer = () => {
                xs:text-[12px]
                 font-medium
                  lg:pb-[20px] md:pb-[16px] xs:pb-[8px]"
+                onClick={handleAbout}
               >
                 About
               </p>
@@ -69,6 +99,7 @@ const Footer = () => {
                xs:text-[12px]
                 font-medium
                  pb-[20px] xs:pb-[8px]"
+                onClick={handleContact}
               >
                 Contact
               </p>
@@ -90,6 +121,7 @@ const Footer = () => {
                 xs:text-[12px] 
                 font-medium 
                 lg:pb-[20px] md:pb-[16px] xs:pb-[8px]"
+                onClick={handlePayment}
               >
                 Payment Options
               </p>
@@ -140,6 +172,7 @@ const Footer = () => {
                   cursor-pointer md:text-[14px] xs:text-[12px]
                   xs:mt-[-2.25px]"
                     type="submit"
+                    onClick={handleSub}
                   >
                     SUBSCRIBE
                   </button>
