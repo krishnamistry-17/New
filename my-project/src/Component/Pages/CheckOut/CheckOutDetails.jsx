@@ -572,7 +572,7 @@ const CheckOutDetails = () => {
                   lg:text-[18px] md:text-[14px] sm:text-[13px] xs:text-[12px]
                   md:pt-[22.5px] md:pl-[0px]
                   sm:pt-[27px] sm:pl-[14px]
-                  xs:pt-[26px] xs:pl-[13px]
+                  xs:pt-[26px] xs:pl-[0px]
                   "
                       >
                         Cash On Delivery
@@ -583,7 +583,7 @@ const CheckOutDetails = () => {
                   lg:text-[18px] md:text-[14px] sm:text-[13px] xs:text-[12px]
                   md:pt-[22.5px] md:pl-[0px]
                   sm:pt-[27px] sm:pl-[14px]
-                  xs:pt-[26px] xs:pl-[13px]
+                  xs:pt-[26px] xs:pl-[0px]
                   "
                       >
                         {" "}

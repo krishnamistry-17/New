@@ -9,6 +9,7 @@ import { useAuth } from "../Pages/Context/AuthContext";
 import { CartContext } from "../Pages/Cart/Context/CartProvider";
 
 const Navbar = () => {
+  
   const navigate = useNavigate();
 
   //using auth context

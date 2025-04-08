@@ -424,7 +424,7 @@ const CartTotal = () => {
         )}
 
         {/*SubTotal Part */}
-        <div className="bg-cream-bglight p-[16px] rounded-lg shadow-md sm:mx-[14px] sm:w-[450px]">
+        <div className="bg-cream-bglight p-[16px] rounded-lg shadow-md sm:mx-[14px] sm:my-[30px] sm:w-[450px]">
           <p className="text-black-darkest font-semibold text-[22px] text-center justify-center">
             Cart Totals
           </p>

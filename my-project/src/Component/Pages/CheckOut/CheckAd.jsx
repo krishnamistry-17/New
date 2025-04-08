@@ -6,7 +6,7 @@ import support from "../../../assets/svgs/CustomerSup.svg";
 
 const CheckAd = () => {
   return (
-    <div className="mt-[300px] w-full h-[270px] bg-cream-bg">
+    <div className="lg:mt-[150px] md:mt-[0px] xs:mt-[355px] w-full h-[270px] bg-cream-bg">
       <div
         className="
             md:px-[53px] md:py-[100px]

@@ -176,7 +176,7 @@ const BlogDetail = () => {
                         {post.subhead2}
                       </p>
                     </div>
-                    <div className="flex mt-[17px] ml-[35px]">
+                    <div className="flex mt-[17px] ml-[21px]">
                       <img src={tag} alt="tag" />
                       <p className="pl-[7px] text-black-light sm:text-[16px] xs:text-[12px]">
                         {post.subhead3}
@@ -206,7 +206,9 @@ const BlogDetail = () => {
                         border-w-[75px]
                     border-b-gray-comapreg drop-shadow-md
                         cursor-pointer text-black-darkest
-                        xl:text-[16px] lg:text-[15px] xl:pt-[10px] lg:pt-[15px] md:pt-[14px] sm:pt-[10px] xs:pt-[8px]
+                        xl:text-[16px] lg:text-[15px] 
+                        xl:pt-[10px] lg:pt-[15px] md:pt-[14px] sm:pt-[10px] xs:pt-[8px]
+                        lg:mb-[0px] md:mb-[14px] sm:mb-[14px] xs:mb-[14px]
                         "
                         type="submit"
                       >

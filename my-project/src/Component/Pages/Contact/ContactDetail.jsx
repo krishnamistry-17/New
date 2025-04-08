@@ -2,29 +2,34 @@ import React, { useState } from "react";
 import address from "../../../assets/svgs/Address.svg";
 import call from "../../../assets/svgs/Call.svg";
 import clock from "../../../assets/svgs/Clock.svg";
-import { Field, Formik } from "formik";
+import { Field, Formik, useFormik } from "formik";
 import * as Yup from "yup";
 
 const ContactDetail = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-
-  const handleMessage = (e) => {
-    e.preventDefault();
-    alert("We'll update you soon..");
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (email) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s]+$/;
-      if (!emailRegex.test(email)) {
-        alert("Enter valid email address");
-        return;
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+    validationSchema: Yup.object({
+      name: Yup.string().required("Name is required"),
+      email: Yup.string()
+        .email("Invalid email format")
+        .required("Email is required"),
+      message: Yup.string().required("Message is required"),
+    }),
+    onSubmit: (values) => {
+      const { email, name, message } = values;
+      if (email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s]+$/;
+        if (!emailRegex.test(email)) {
+          alert("Enter valid email address");
+          return;
+        }
       }
-    }
-  };
+    },
+  });
 
   return (
     <div className="font-poppins">
@@ -182,50 +187,40 @@ const ContactDetail = () => {
         </div>
 
         {/*right */}
-        <Formik
-          initialValues={{
-            name: "",
-            email: "",
-            message: "",
-          }}
-          onSubmit={(values) => console.log(values)}
-          validationSchema={Yup.object().shape({
-            name: Yup.string().required("Name is required"),
-            email: Yup.string().required("Email is required"),
-            message: Yup.string().required("Message is required"),
-          })}
-        >
-          {({ errors, touched }) => (
-            <form onSubmit={handleSubmit}>
-              <div
-                className="bg-white-light  
+
+        <form onSubmit={formik.handleSubmit}>
+          <div
+            className="bg-white-light 
     xl:w-[635px] xl:h-[923px]
     lg:w-[500px] lg:h-[800px]
     md:w-[430px] md:h-[700px]
-    sm:w-[100%] sm:h-[600px]
-    xs:w-[100%] xs:h-[555px]
-    md:mt-[14px]"
-              >
-                <div
-                  className="
+    sm:w-[100%] sm:h-[745px]
+    xs:w-[100%] xs:h-[685px]
+    md:mt-[14px] sm:mt-[2px] xs:mt-[20px]"
+          >
+            <div
+              className=" 
       xl:w-[531px] xl:h-[741px] 
       lg:w-[400px] lg:h-[706px]
       md:w-[335px] md:h-[650px]
-      sm:w-[100%] sm:h-[500px]
+      sm:w-[100%] sm:h-[727px]
       xs:w-[100%] xs:h-[545px]
       xl:mx-[52px] lg:mx-[40px] md:mx-[30px] 
       lg:my-[40px] md:my-[40px] sm:my-[0px] xs:my-[20px]
      xl:mb-[63px]
     "
-                >
-                  <div>
-                    <p className="font-medium text-black-darkest xs:text-[16px]">
-                      Your name<span className="text-red-700">*</span>
-                    </p>
-                    <Field
-                      type="text"
-                      name="name"
-                      className="bg-white-light border border-black-light rounded-lg 
+            >
+              <div>
+                <p className="font-medium text-black-darkest xs:text-[16px]">
+                  Your name<span className="text-red-700">*</span>
+                </p>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Abc"
+                  value={formik.values.name}
+                  onChange={formik.handleChange}
+                  className="bg-white-light border border-black-light rounded-lg 
           mt-[22px] text-[16px] text-black-darkest pl-[31px] px-[25px]
           xs:w-full xs:max-w-full xs:h-[50px] 
           sm:w-full sm:max-w-full sm:h-[60px] 
@@ -233,20 +228,26 @@ const ContactDetail = () => {
           lg:w-full lg:max-w-[400px] lg:h-[70px] 
           xl:w-full xl:max-w-[528.75px] xl:h-[75px] 
         "
-                      placeholder="Abc"
-                    />
-                    <p className="text-red-700 text-[15px] pt-[7px] pl-[4px]">
-                      {errors.name && touched.name && <div>{errors.name}</div>}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-medium text-black-darkest xs:text-[16px] pt-[36px]">
-                      Email address<span className="text-red-700">*</span>
-                    </p>
-                    <Field
-                      type="text"
-                      name="email"
-                      className="bg-white-light border border-black-light rounded-lg 
+                />
+
+                {formik.touched.name && formik.errors.name && (
+                  <p className="text-red-700 text-[15px] pt-[7px] pl-[4px]">
+                    {formik.errors.name}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <p className="font-medium text-black-darkest xs:text-[16px] pt-[36px]">
+                  Email address<span className="text-red-700">*</span>
+                </p>
+                <input
+                  type="email"
+                  value={formik.values.email}
+                  name="email"
+                  onChange={formik.handleChange}
+                  placeholder="Abc@def.com"
+                  className="bg-white-light border border-black-light rounded-lg 
           mt-[22px] text-[16px] text-black-darkest pl-[31px] px-[25px]
           xs:w-full xs:max-w-full xs:h-[50px]
           sm:w-full sm:max-w-full sm:h-[60px]
@@ -254,22 +255,22 @@ const ContactDetail = () => {
           lg:w-full lg:max-w-[400px] lg:h-[70px]
           xl:w-full xl:max-w-[528.75px] xl:h-[75px]
         "
-                      placeholder="Abc@def.com"
-                    />
-                    <p className="text-red-700 text-[15px] pt-[7px] pl-[4px]">
-                      {errors.email && touched.email && (
-                        <div>{errors.email}</div>
-                      )}
-                    </p>
-                  </div>
+                />
 
-                  <div>
-                    <p className="font-medium text-black-darkest xs:text-[16px] pt-[36px]">
-                      Subject
-                    </p>
-                    <input
-                      type="text"
-                      className="bg-white-light border border-black-light rounded-lg 
+                {formik.touched.email && formik.errors.email && (
+                  <p className="text-red-700 text-[15px] pt-[7px] pl-[4px]">
+                    {formik.errors.email}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <p className="font-medium text-black-darkest xs:text-[16px] pt-[36px]">
+                  Subject
+                </p>
+                <input
+                  type="text"
+                  className="bg-white-light border border-black-light rounded-lg 
           mt-[22px] text-[16px] text-black-darkest pl-[31px] px-[25px]
           xs:w-full xs:max-w-full xs:h-[50px]
           sm:w-full sm:max-w-full sm:h-[60px]
@@ -277,17 +278,21 @@ const ContactDetail = () => {
           lg:w-full lg:max-w-[400px] lg:h-[70px]
           xl:w-full xl:max-w-[528.75px] xl:h-[75px]
         "
-                      placeholder="This is an optional"
-                    />
-                  </div>
+                  placeholder="This is an optional"
+                />
+              </div>
 
-                  <div>
-                    <p className="font-medium text-black-darkest xs:text-[16px] pt-[36px]">
-                      Message<span className="text-red-700">*</span>
-                    </p>
-                    <input
-                      type="text"
-                      className="bg-white-light border border-black-light rounded-lg 
+              <div>
+                <p className="font-medium text-black-darkest xs:text-[16px] pt-[36px]">
+                  Message<span className="text-red-700">*</span>
+                </p>
+                <input
+                  type="text"
+                  name="message"
+                  placeholder="Hi! i’d like to ask about"
+                  value={formik.values.message}
+                  onChange={formik.handleChange}
+                  className="bg-white-light border border-black-light rounded-lg 
           mt-[22px] text-[16px] text-black-darkest pl-[30px] pt-[26px] pb-[70px]
           xs:w-full xs:max-w-full xs:h-[30px] // Full width for xs with max-width
           sm:w-full sm:max-w-full sm:h-[60px]
@@ -295,28 +300,27 @@ const ContactDetail = () => {
           lg:w-full lg:max-w-[400px] lg:h-[70px]
           xl:w-full xl:max-w-[527px] xl:h-[120px]
         "
-                      placeholder="Hi! i’d like to ask about"
-                    />
-                    <p className="text-red-700 text-[15px] pt-[7px] pl-[4px]">
-                      {errors.message && touched.message && (
-                        <div>{errors.message}</div>
-                      )}
-                    </p>
-                  </div>
-                  <div className="lg:mt-[49px] sm:mt-[30px] xs:mt-[20px] md:ml-[7px] ">
-                    <button
-                      className="bg-yellow-dark rounded-md text-[16px] text-white-light
-          lg:w-[237px] lg:h-[55px] py-[13.75px] px-[89px]"
-                      onClick={handleMessage}
-                    >
-                      Submit
-                    </button>
-                  </div>
-                </div>
+                />
+
+                {formik.touched.message && formik.errors.message && (
+                  <p className="text-red-700 text-[15px] pt-[7px] pl-[4px]">
+                    {formik.errors.message}
+                  </p>
+                )}
               </div>
-            </form>
-          )}
-        </Formik>
+
+              <div className="lg:mt-[49px] sm:mt-[30px] xs:mt-[20px] md:ml-[7px] ">
+                <button
+                  className="bg-yellow-dark rounded-md text-[16px] text-white-light
+          lg:w-[237px] lg:h-[55px] py-[13.75px] px-[89px]"
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   );
