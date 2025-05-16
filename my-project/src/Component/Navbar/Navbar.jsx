@@ -9,7 +9,6 @@ import { useAuth } from "../Pages/Context/AuthContext";
 import { CartContext } from "../Pages/Cart/Context/CartProvider";
 
 const Navbar = () => {
-  
   const navigate = useNavigate();
 
   //using auth context
@@ -17,6 +16,7 @@ const Navbar = () => {
   const { isSignedIn, setIsSignedIn } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  const [langoption, setLangOption] = useState(false);
 
   const { cartItems } = useContext(CartContext);
 
@@ -88,7 +88,11 @@ const Navbar = () => {
         </div>
 
         {menuOpen && (
-          <div className="md:hidden absolute top-[60px] right-0 bg-white shadow-lg w-[200px] p-[20px] rounded-md z-10 bg-white-light">
+          <div
+            className="md:hidden 
+          absolute top-[60px] right-0 bg-white shadow-lg w-[200px] p-[20px] 
+          rounded-md z-10 bg-white-light"
+          >
             <a
               className="block p-[10px] text-black text-[16px] font-medium"
               href="/"
@@ -190,16 +194,35 @@ const Navbar = () => {
             alt="Fav"
             className="w-[24px] h-[24px] md:ml-[15px] sm:ml-[26px] xs:ml-[20px]"
           />
-          <img
-            src={Cart}
-            alt="Cart"
-            onClick={handleCart}
-            className="w-[24px] relative h-[24px] md:ml-[15px] sm:ml-[26px] xs:ml-[20px]"
-          />
-          {totalQuantity > 0 &&
+          <div className="relative">
+            <img
+              src={Cart}
+              alt="Cart"
+              onClick={handleCart}
+              className="w-[24px] h-[24px] md:ml-[15px] sm:ml-[26px] xs:ml-[20px]"
+            />
+            {totalQuantity > 0 && (
+              <span
+                className="absolute -top-2 -right-2 text-white text-[12px] font-semibold
+      bg-red-700 h-[20px] w-[20px] flex items-center justify-center rounded-full"
+              >
+                {totalQuantity}
+              </span>
+            )}
+          </div>
+
+          {/* <div className="pl-[25px]">
+            <select className=" absolute top-[40px] ">
+              <option>English</option>
+              <option>Arabic</option>
+              <option>Hindi</option>
+              <option>Portuguese </option>
+            </select>
+          </div> */}
+
+          {/* {totalQuantity > 0 &&
             cartItems.map((index) => (
               <div key={index}>
-                {/*Circle*/}
                 <div>
                   <span
                     className="absolute 
@@ -216,7 +239,7 @@ const Navbar = () => {
                   </span>
                 </div>
               </div>
-            ))}
+            ))} */}
         </div>
 
         {/* Menu button for mobile */}

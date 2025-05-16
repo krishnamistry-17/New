@@ -21,7 +21,7 @@ const SignUp = () => {
       confirmPassword: "",
       city: "",
     },
-    
+
     validationSchema: Yup.object({
       name: Yup.string().required("Name is required"),
       email: Yup.string()
