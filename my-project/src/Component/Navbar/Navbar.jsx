@@ -7,16 +7,16 @@ import Logo from "../../assets/svgs/Logo.svg";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Pages/Context/AuthContext";
 import { CartContext } from "../Pages/Cart/Context/CartProvider";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   //using auth context
 
   const { isSignedIn, setIsSignedIn } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
-  const [langoption, setLangOption] = useState(false);
 
   const { cartItems } = useContext(CartContext);
 
@@ -65,25 +65,25 @@ const Navbar = () => {
             className="p-[10px] text-black inline-block text-[16px] font-medium"
             href="/"
           >
-            Home
+            {t("home")}
           </a>
           <a
             className="p-[10px] text-black inline-block text-[16px] font-medium"
             href="/shop"
           >
-            Shop
+            {t("shop")}
           </a>
           <a
             className="p-[10px] text-black inline-block text-[16px] font-medium"
             href="/about"
           >
-            About
+            {t("about")}
           </a>
           <a
             className="p-[10px] text-black inline-block text-[16px] font-medium"
             href="/contact"
           >
-            Contact
+            {t("contact")}
           </a>
         </div>
 
@@ -97,25 +97,25 @@ const Navbar = () => {
               className="block p-[10px] text-black text-[16px] font-medium"
               href="/"
             >
-              Home
+              {t("home")}
             </a>
             <a
               className="block p-[10px] text-black text-[16px] font-medium"
               href="/shop"
             >
-              Shop
+              {t("shop")}
             </a>
             <a
               className="block p-[10px] text-black text-[16px] font-medium"
               href="/about"
             >
-              About
+              {t("about")}
             </a>
             <a
               className="block p-[10px] text-black text-[16px] font-medium"
               href="/contact"
             >
-              Contact
+              {t("contact")}
             </a>
 
             {/* SignIn/SignUp options */}
@@ -210,15 +210,6 @@ const Navbar = () => {
               </span>
             )}
           </div>
-
-          {/* <div className="pl-[25px]">
-            <select className=" absolute top-[40px] ">
-              <option>English</option>
-              <option>Arabic</option>
-              <option>Hindi</option>
-              <option>Portuguese </option>
-            </select>
-          </div> */}
 
           {/* {totalQuantity > 0 &&
             cartItems.map((index) => (

@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { MdArrowForwardIos } from "react-icons/md";
 import { MdArrowBackIos } from "react-icons/md";
 
@@ -10,7 +11,7 @@ const BlogPage = ({
 }) => {
   console.log("currentPgae", currentPgae);
   const totalPages = Math.ceil(totalPosts / postsPerPage);
-
+  const { t } = useTranslation();
   let pageNumbers = [];
 
   pageNumbers.push(1);
@@ -59,7 +60,7 @@ const BlogPage = ({
         onClick={goToPreviousPage}
       >
         <MdArrowBackIos />
-        Previous
+        {t("pageprev")}
       </button>
 
       <div className="flex gap-[16px]">
@@ -101,7 +102,7 @@ const BlogPage = ({
        bg-cream-bglight text-black-darkest"
         onClick={goToNextPage}
       >
-        Next
+        {t("pagenext")}
         <MdArrowForwardIos className="ml-[9px]" />
       </button>
     </div>

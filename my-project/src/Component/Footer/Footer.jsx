@@ -1,9 +1,10 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   const handleHome = () => {
     navigate("/");
     window.scrollTo(0, 0);
@@ -45,7 +46,7 @@ const Footer = () => {
               xs:text-[16px]
                text-black-darkest pb-[20px]"
               >
-                Funiro
+                {t("footer")}
               </h2>
 
               <p
@@ -56,13 +57,13 @@ const Footer = () => {
               xs:text-[12px]
               text-black-light"
               >
-                400 University Drive Suite 200 Coral Gables, FL 33134 USA
+                {t("add")}
               </p>
             </div>
 
             <div>
               <p className="text-black-light text-[16px] xs:text-[13px] pb-[15px]">
-                Links
+                {t("link")}
               </p>
               <p
                 className="text-black-darkest 
@@ -71,7 +72,7 @@ const Footer = () => {
               font-medium lg:pb-[20px] md:pb-[16px] xs:pb-[8px]"
                 onClick={handleHome}
               >
-                Home
+                {t("home")}
               </p>
               <p
                 className="text-black-darkest 
@@ -81,7 +82,7 @@ const Footer = () => {
                  lg:pb-[20px] md:pb-[16px] xs:pb-[8px]"
                 onClick={handleShop}
               >
-                Shop
+                {t("shop")}
               </p>
               <p
                 className="text-black-darkest 
@@ -91,7 +92,7 @@ const Footer = () => {
                  lg:pb-[20px] md:pb-[16px] xs:pb-[8px]"
                 onClick={handleAbout}
               >
-                About
+                {t("about")}
               </p>
               <p
                 className="text-black-darkest 
@@ -101,7 +102,7 @@ const Footer = () => {
                  pb-[20px] xs:pb-[8px]"
                 onClick={handleContact}
               >
-                Contact
+                {t("contact")}
               </p>
             </div>
 
@@ -112,7 +113,7 @@ const Footer = () => {
                xs:text-[13px]
                 pb-[15px]"
               >
-                Help
+                {t("help")}
               </p>
               <p
                 className="text-black-darkest 
@@ -123,7 +124,7 @@ const Footer = () => {
                 lg:pb-[20px] md:pb-[16px] xs:pb-[8px]"
                 onClick={handlePayment}
               >
-                Payment Options
+                {t("paymentoption")}
               </p>
               <p
                 className="text-black-darkest 
@@ -132,7 +133,7 @@ const Footer = () => {
                 xs:text-[12px] 
                 font-medium lg:pb-[20px] md:pb-[16px] xs:pb-[8px]"
               >
-                Returns
+                {t("returns")}
               </p>
 
               <p
@@ -142,7 +143,7 @@ const Footer = () => {
                 xs:text-[12px] 
                 font-medium lg:pb-[20px] md:pb-[16px]"
               >
-                Privacy Policies
+                {t("privacy")}
               </p>
             </div>
 
@@ -152,14 +153,14 @@ const Footer = () => {
             pb-[15px]
             "
               >
-                Newsletter
+                {t("newsletter")}
               </p>
 
               <div className="flex">
                 <div className="mr-[10px]">
                   <input
                     type="text"
-                    placeholder="Enter Your Email Address"
+                    placeholder={t("placeholder")}
                     className="border-t-0 border-r-0 border-l-0 outline-none
                 border-b-[3px] md:text-[14px] xs:text-[12px] text-black-light drop-shadow-sm"
                   ></input>
@@ -174,7 +175,7 @@ const Footer = () => {
                     type="submit"
                     onClick={handleSub}
                   >
-                    SUBSCRIBE
+                    {t("sub")}
                   </button>
                 </div>
               </div>
@@ -185,7 +186,7 @@ const Footer = () => {
             <hr className="w-full" />
             <p className="md:text-[16px] xs:text-[12px] w-[239px] text-center">
               {" "}
-              2023 Funiro. All rights reserved
+              {t("foot")}
             </p>
           </div>
         </div>

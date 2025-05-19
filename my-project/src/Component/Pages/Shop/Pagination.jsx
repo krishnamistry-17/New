@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { MdArrowForwardIos } from "react-icons/md";
 import { MdArrowBackIos } from "react-icons/md";
 
@@ -9,7 +10,7 @@ const Pagination = ({
   currentPage,
 }) => {
   console.log(currentPage, "currentPage");
-
+  const { t } = useTranslation();
   const totalPages = Math.ceil(totalPosts / postsPerPage);
 
   // Dynamically add page numbers
@@ -21,16 +22,6 @@ const Pagination = ({
   pageNumbers.push(4, 5);
   pageNumbers.push(6, 7);
   pageNumbers.push(8);
-
-  // // Add current page numbers
-  // if (currentPage >= 3 && currentPage <= 8) {
-  //   pageNumbers.push(currentPage);
-  // }
-
-  // // Add ellipsis
-  // if (totalPages > 8 && currentPage < totalPages - 2) {
-  //   pageNumbers.push("...");
-  // }
 
   // Add second-to-last and last pages
   if (totalPages > 1) {
@@ -85,7 +76,7 @@ const Pagination = ({
         onClick={goToPreviousPage}
       >
         <MdArrowBackIos className="pl-[4px]" />
-        Previous
+        {t("pageprev")}
       </button>
 
       <div className="md:flex sm:gap-4 xs:gap-2">
@@ -130,7 +121,7 @@ const Pagination = ({
           transition-all"
         onClick={goToNextPage}
       >
-        Next
+        {t("pagenext")}
         <MdArrowForwardIos className="pl-[2px]" />
       </button>
     </div>

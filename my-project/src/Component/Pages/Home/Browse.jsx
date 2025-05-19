@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import homeliv from "../../../assets/images/home-liv.png";
 import living from "../../../assets/images/living.png";
 import living2 from "../../../assets/images/living-2.png";
+import { useTranslation } from "react-i18next";
 
 const Browse = () => {
   const [posts, setPosts] = useState([]);
-
+  const { t } = useTranslation();
   const data = [
     {
       image: homeliv,
@@ -33,10 +34,10 @@ const Browse = () => {
     <div className="mb-[51.95px] xl:ml-[169px] xl:mr-[126px]">
       <div className="w-full max-w-[559px] mx-auto text-center justify-center">
         <h1 className="text-[32px] md:text-[32px] sm:text-[25px] xs:text-[15px] font-bold mt-[26px]">
-          Browse The Range
+          {t("range")}
         </h1>
         <p className="text-[20px] md:text-[20px] sm:text-[15px] xs:text-[13px] text-black-paradark">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          {t("rangedesc")}
         </p>
       </div>
 
@@ -47,24 +48,24 @@ const Browse = () => {
       >
         {posts.map((post, index) => (
           <div key={index}>
-            <img src={post.image} alt={post.caption1}></img>
+            <img src={post.image}></img>
             <p
               className="text-black-para font-semibold lg:text-[24px] sm:text-[16px] 
            xs:text-[12px] text-center mt-2"
             >
-              {post.caption1}
+              {t("c1")}
             </p>
             <p
               className="text-black-para font-semibold lg:text-[24px] sm:text-[16px] 
            xs:text-[12px] text-center mt-2"
             >
-              {post.caption2}
+              {t("c2")}
             </p>
             <p
               className="text-black-para font-semibold lg:text-[24px] sm:text-[16px] 
            xs:text-[12px] text-center mt-2"
             >
-              {post.caption3}
+              {t("c3")}
             </p>
           </div>
         ))}

@@ -12,10 +12,11 @@ import post3 from "../../../assets/images/post3.png";
 import post4 from "../../../assets/images/post4.png";
 import post5 from "../../../assets/images/post5.png";
 import BlogPage from "./BlogPage";
+import { useTranslation } from "react-i18next";
 
 const BlogDetail = () => {
   const [posts, setPosts] = useState([]);
-
+  const { t } = useTranslation();
   //total data are 9
   const data = [
     {
@@ -167,19 +168,19 @@ const BlogDetail = () => {
                     <div className="flex mt-[17px]">
                       <img src={admin} alt="ad" />
                       <p className="pl-[7px] text-black-light sm:text-[16px] xs:text-[12px]">
-                        {post.subhead1}
+                        {t("subhead1")}
                       </p>
                     </div>
                     <div className="flex mt-[17px] ml-[35px]">
                       <img src={cal} alt="cal" />
                       <p className="pl-[11px] text-black-light sm:text-[16px] xs:text-[12px]">
-                        {post.subhead2}
+                        {t("subhead2")}
                       </p>
                     </div>
                     <div className="flex mt-[17px] ml-[21px]">
                       <img src={tag} alt="tag" />
                       <p className="pl-[7px] text-black-light sm:text-[16px] xs:text-[12px]">
-                        {post.subhead3}
+                        {t("subhead3")}
                       </p>
                     </div>
                   </div>
@@ -188,7 +189,7 @@ const BlogDetail = () => {
                       className="pt-[15px] font-medium text-black-darkest 
                   lg:text-[30px] md:text-[27px]"
                     >
-                      {post.heading}
+                      {t("bloghead")}
                     </h2>
                   </div>
                   <div>
@@ -196,7 +197,7 @@ const BlogDetail = () => {
                       className="text-black-light 
                   lg:text-[15px] md:text-[14px] pt-[12px] text-justify"
                     >
-                      {post.para}
+                      {t("blogpara")}
                     </p>
                   </div>
                   <div>
@@ -212,7 +213,7 @@ const BlogDetail = () => {
                         "
                         type="submit"
                       >
-                        {post.btn}
+                        {t("btn2")}
                       </button>
                     </div>
                   </div>
@@ -271,27 +272,35 @@ const BlogDetail = () => {
               w-[251px] h-[353px]"
               >
                 <h2 className="text-black-darkest font-medium text-[24px]">
-                  Categories
+                  {t("categories")}
                 </h2>
                 <div>
                   <div className="flex mt-[33px]">
-                    <p className="text-black-light text-[16px]">Crafts</p>
+                    <p className="text-black-light text-[16px]">
+                      {t("crafts")}
+                    </p>
                     <p className="text-black-light text-[16px] pl-[191px]">2</p>
                   </div>
                   <div className="flex pt-[41px]">
-                    <p className="text-black-light text-[16px]">Design</p>
+                    <p className="text-black-light text-[16px]">
+                      {t("design")}
+                    </p>
                     <p className="text-black-light text-[16px] pl-[185px]">8</p>
                   </div>
                   <div className="flex pt-[41px]">
-                    <p className="text-black-light text-[16px]">Handmade</p>
+                    <p className="text-black-light text-[16px]">
+                      {t("handmade")}
+                    </p>
                     <p className="text-black-light text-[16px] pl-[156px]">7</p>
                   </div>
                   <div className="flex pt-[41px]">
-                    <p className="text-black-light text-[16px]">Interior</p>
+                    <p className="text-black-light text-[16px]">
+                      {t("interior")}
+                    </p>
                     <p className="text-black-light text-[16px] pl-[183px]">1</p>
                   </div>
                   <div className="flex pt-[41px]">
-                    <p className="text-black-light text-[16px]">Wood</p>
+                    <p className="text-black-light text-[16px]">{t("wood")}</p>
                     <p className="text-black-light text-[16px] pl-[193px]">6</p>
                   </div>
                 </div>
@@ -319,17 +328,17 @@ const BlogDetail = () => {
               "
               >
                 <h2 className="font-medium text-black-darkest text-[24px]">
-                  Recent Posts
+                  {t("recentpost")}
                 </h2>
                 <div>
                   <div className="flex mt-[26px]">
                     <img src={post1} alt="p1" className="w-[80px] h-[80px]" />
                     <div className="ml-[12px] md:ml-[15px] ">
                       <h2 className="text-black-darkest text-[14px]">
-                        Going all-in with millennial design
+                        {t("posthead")}
                       </h2>
                       <p className="text-black-light text-[12px] pt-[5px]">
-                        03 Aug 2022
+                        {t("postdate")}
                       </p>
                     </div>
                   </div>
@@ -337,10 +346,10 @@ const BlogDetail = () => {
                     <img src={post2} alt="p2" />
                     <div className="ml-[12px]">
                       <h2 className="text-black-darkest text-[14px]">
-                        Exploring new ways of decorating
+                        {t("posthead1")}
                       </h2>
                       <p className="text-black-light text-[12px] pt-[5px]">
-                        03 Aug 2022
+                        {t("postdate")}
                       </p>
                     </div>
                   </div>
@@ -348,10 +357,10 @@ const BlogDetail = () => {
                     <img src={post3} alt="p3" />
                     <div className="ml-[12px]">
                       <h2 className="text-black-darkest text-[14px]">
-                        Handmade pieces that took time to make
+                        {t("posthead2")}
                       </h2>
                       <p className="text-black-light text-[12px] pt-[5px]">
-                        03 Aug 2022
+                        {t("postdate")}
                       </p>
                     </div>
                   </div>
@@ -359,10 +368,10 @@ const BlogDetail = () => {
                     <img src={post4} alt="p4" />
                     <div className="ml-[12px]">
                       <h2 className="text-black-darkest text-[14px]">
-                        Modern home in Milan
+                        {t("posthead3")}
                       </h2>
                       <p className="text-black-light text-[12px] pt-[5px]">
-                        03 Aug 2022
+                        {t("postdate")}
                       </p>
                     </div>
                   </div>
@@ -370,10 +379,10 @@ const BlogDetail = () => {
                     <img src={post5} alt="p5" />
                     <div className="ml-[12px]">
                       <h2 className="text-black-darkest text-[14px]">
-                        Colorful office redesign
+                        {t("posthead4")}
                       </h2>
                       <p className="text-black-light text-[12px] pt-[5px]">
-                        03 Aug 2022
+                        {t("postdate")}
                       </p>
                     </div>
                   </div>

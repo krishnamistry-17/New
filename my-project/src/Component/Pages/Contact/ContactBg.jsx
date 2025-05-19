@@ -3,9 +3,10 @@ import shopbg from "../../../assets/images/shopbg.png";
 import great from "../../../assets/svgs/Greater.svg";
 import { useNavigate } from "react-router-dom";
 import logo from "../../../assets/svgs/AppLogo.svg";
+import { useTranslation } from "react-i18next";
 const ContactBg = () => {
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   const handleClick = () => {
     navigate("/");
   };
@@ -37,7 +38,7 @@ const ContactBg = () => {
         md:ml-[-10px] sm:ml-[-5px] xs:ml-[-7px] 
         "
         >
-          Contact
+          {t("contact")}
         </h2>
         <div className=" absolute flex items-center justify-center ">
           <p
@@ -45,11 +46,11 @@ const ContactBg = () => {
             md:text-[16px] xs:text-[12px] text-black-darkest pr-[6.08px]"
             onClick={handleClick}
           >
-            Home
+            {t("home")}
           </p>
           <img src={great} alt="grt"></img>
           <p className="md:text-[16px] xs:text-[12px] text-black-darkest pl-[6.08px]">
-            Contact
+            {t("contact")}
           </p>
         </div>
       </div>

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import image from "../../../assets/images/home.jpg";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { button } from "@material-tailwind/react";
 
 const Card = () => {
   const [posts, setPosts] = useState([]);
-
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const data = [
@@ -54,7 +56,7 @@ const Card = () => {
        sm:text-[13px] xs:text-[12px] text-shadow-stroke"
                 style={{ WebkitTextStroke: "1px black" }}
               >
-                {post.heading}
+                {t("new")}
               </h2>
               <h1
                 className="text-yellow-dark    
@@ -62,14 +64,14 @@ const Card = () => {
        md:text-[35px] sm:text-[15px] xs:text-[12px] 
         font-bold"
               >
-                {post.collection}
+                {t("collection")}
               </h1>
               <p
                 className="text-black-para 
        text-[20px] md:text-[18px] sm:text-[10px] xs:text-[10px]
        font-medium pt-4  "
               >
-                {post.desc}
+                {t("desc")}
               </p>
             </div>
           ))}
@@ -80,7 +82,7 @@ const Card = () => {
        sm:w-[165px] sm:h-[55px] xs:w-[152px] xs:h-[50px] xs:mt-3 drop-shadow-[0_0px_4px_rgba(0,0,0,0.25)] "
             onClick={handelCard}
           >
-            BUY NOW
+            {t("btn")}
           </button>
         </div>
       </div>

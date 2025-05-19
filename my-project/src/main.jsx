@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App.jsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { CartProvider } from "./Component/Pages/Cart/Context/CartProvider.jsx";
+import i18n from "./i18n.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

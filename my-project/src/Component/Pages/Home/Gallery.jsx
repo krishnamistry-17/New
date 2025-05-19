@@ -8,10 +8,11 @@ import image6 from "../../../assets/images/image6.png";
 import image7 from "../../../assets/images/image7.png";
 import image8 from "../../../assets/images/image8.png";
 import image9 from "../../../assets/images/image9.png";
+import { useTranslation } from "react-i18next";
 
 const Gallery = () => {
   const [posts, setPosts] = useState([]);
-
+  const { t } = useTranslation();
   const data = [
     { product1: image1, product2: image2, product3: image3 },
     { product4: image4, product5: image5, product6: image6 },
@@ -35,7 +36,7 @@ const Gallery = () => {
                       sm:text-[15px] xs:text-[12px] mt-[67px]
                        text-gray-lightpara font-semibold"
         >
-          Share your setup with
+          {t("mashead")}
         </p>
         <h1
           className="text-[40px]
@@ -43,7 +44,7 @@ const Gallery = () => {
                        xs:text-[20px] font-bold
                         text-black-dark"
         >
-          #FuniroFurniture
+          {t("massub")}
         </h1>
       </div>
 

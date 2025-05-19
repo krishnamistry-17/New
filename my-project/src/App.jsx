@@ -16,19 +16,10 @@ import Auth from "./Component/Pages/Auth/Auth";
 import Signin from "./Component/Pages/Signin/Signin";
 import SignUp from "./Component/Pages/SignUp/SignUp";
 import { AuthProvider } from "./Component/Pages/Context/AuthContext";
-import "./i18n";
-import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
+import i18n from "./i18n";
 import LanguageSelectore from "./Component/LanguageSelectore";
 
 function App() {
-  const { i18n } = useTranslation();
-
-  useEffect(() => {
-    const language = navigator.language.split("-")[0];
-    i18n.changeLanguage(language);
-  }, []);
-
   return (
     <BrowserRouter>
       <AuthProvider>

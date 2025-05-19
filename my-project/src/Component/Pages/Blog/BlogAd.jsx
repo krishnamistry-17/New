@@ -3,8 +3,10 @@ import quality from "../../../assets/svgs/Quality.svg";
 import warnty from "../../../assets/svgs/Warnty.svg";
 import shipping from "../../../assets/svgs/Shipping.svg";
 import support from "../../../assets/svgs/CustomerSup.svg";
+import { useTranslation } from "react-i18next";
 
 const BlogAd = () => {
+  const { t } = useTranslation();
   return (
     <div className="mt-[85px] w-full h-[270px] bg-cream-bg">
       <div
@@ -33,7 +35,7 @@ const BlogAd = () => {
                             sm:text-[16px] xs:text-[14px]
                              text-black-bname"
               >
-                High Quality
+                {t("quality")}
               </h2>
               <p
                 className="font-medium 
@@ -41,7 +43,7 @@ const BlogAd = () => {
                             sm:text-[14px] xs:text-[12px]
                              text-gray-graypara"
               >
-                crafted from top materials
+                {t("top")}
               </p>
             </div>
           </div>
@@ -64,7 +66,7 @@ const BlogAd = () => {
                              sm:text-[16px] xs:text-[14px]
                                text-black-bname"
               >
-                Warranty Protection
+                {t("warnty")}
               </h2>
               <p
                 className="font-medium 
@@ -72,7 +74,7 @@ const BlogAd = () => {
                            sm:text-[14px] xs:text-[12px]
                             text-gray-graypara"
               >
-                Over 2 years
+                {t("year")}
               </p>
             </div>
           </div>
@@ -95,7 +97,7 @@ const BlogAd = () => {
                            sm:text-[16px] xs:text-[14px]
                             text-black-bname"
               >
-                Free Shipping
+                {t("shipping")}
               </h2>
               <p
                 className="font-medium 
@@ -103,7 +105,7 @@ const BlogAd = () => {
                             sm:text-[14px] xs:text-[12px]
                              text-gray-graypara"
               >
-                Order over 150 $
+                {t("order")}
               </p>
             </div>
           </div>
@@ -126,7 +128,7 @@ const BlogAd = () => {
                            sm:text-[16px] xs:text-[14px]
                             text-black-bname"
               >
-                24 / 7 Support
+                {t("support")}
               </h2>
               <p
                 className="font-medium 
@@ -134,7 +136,7 @@ const BlogAd = () => {
                            sm:text-[14px] xs:text-[12px]
                             text-gray-graypara"
               >
-                Dedicated support
+                {t("dsupport")}
               </p>
             </div>
           </div>

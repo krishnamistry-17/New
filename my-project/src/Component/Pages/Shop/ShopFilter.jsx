@@ -11,6 +11,7 @@ import product5 from "../../../assets/images/product5.png";
 import product6 from "../../../assets/images/product6.png";
 import product7 from "../../../assets/images/product7.png";
 import product8 from "../../../assets/images/product8.png";
+import { useTranslation } from "react-i18next";
 
 const ShopFilter = () => {
   const [showCount, SetShowCount] = useState("");
@@ -399,7 +400,7 @@ const ShopFilter = () => {
       discountFlag: false,
     },
   ];
-
+  const { t } = useTranslation();
   const handleShowChange = (e) => {
     const value = e.target.value;
     SetShowCount(value);
@@ -454,7 +455,7 @@ const ShopFilter = () => {
           className="lg:text-[20px] md:text-[18px] sm:text-[16px] xs:text-[14px]
              text-black-darkest lg:pl-[12px] lg:pr-[15px]"
         >
-          Filter
+          {t("filter")}
         </p>
 
         <img
@@ -482,7 +483,7 @@ const ShopFilter = () => {
         />
 
         <p className="xl:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[11px]">
-          Showing 1–{searchId} of 40 results
+          {t("showing")} {/*{searchId} */}
         </p>
 
         <div className="flex flex-wrap justify-between items-center">
@@ -492,7 +493,7 @@ const ShopFilter = () => {
              sm:text-[12px] xs:text-[11px] 
              md:mt-[3px] lg:mt-[12px] xs:mt-[5px]"
           >
-            Show
+            {t("show")}
           </p>
 
           <input
@@ -520,7 +521,7 @@ const ShopFilter = () => {
             text-black-darkest 
              md:mt-[3px] lg:mt-[12px] sm:mt-[5px] xs:mt-[5px]"
           >
-            Short by
+            {t("short")}
           </p>
 
           <select
@@ -538,9 +539,9 @@ const ShopFilter = () => {
             value={sortOption}
             onChange={handleSortChange}
           >
-            <option value="default">Default</option>
-            <option value="price">Price</option>
-            <option value="heading">Heading</option>
+            <option value="default">{t("o1")}</option>
+            <option value="price">{t("o2")}</option>
+            <option value="heading">{t("o3")}</option>
           </select>
         </div>
       </div>

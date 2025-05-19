@@ -4,8 +4,10 @@ import call from "../../../assets/svgs/Call.svg";
 import clock from "../../../assets/svgs/Clock.svg";
 import { Field, Formik, useFormik } from "formik";
 import * as Yup from "yup";
+import { useTranslation } from "react-i18next";
 
 const ContactDetail = () => {
+  const { t } = useTranslation();
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -45,7 +47,7 @@ const ContactDetail = () => {
         xs:pl-[61px] xs:pt-[20px]
         "
         >
-          Get In Touch With Us
+          {t("getcontact")}
         </h2>
         <p
           className="text-black-light 
@@ -56,9 +58,7 @@ const ContactDetail = () => {
         xl:ml-[58px] lg:ml-[68px] md:ml-[71px] sm:ml-[21px] xs:ml-[17px]
         "
         >
-          For More Information About Our Product & Services. Please Feel Free To
-          Drop Us An Email. Our Staff Always Be There To Help You Out. Do Not
-          Hesitate!
+          {t("contactdetail")}
         </p>
       </div>
 
@@ -96,7 +96,7 @@ const ContactDetail = () => {
                 sm:pt-[14px] sm:pl-[49px]
                 "
               >
-                Address
+                {t("address")}
               </p>
             </div>
             <p
@@ -105,7 +105,7 @@ const ContactDetail = () => {
             xl:pl-[106px] lg:pl-[74px] md:pl-[72px] sm:pl-[19px] xs:pl-[56px] md:ml-[0px] sm:ml-[]
             "
             >
-              236 5th SE Avenue, New York NY10000, United States
+              {t("addetail")}
             </p>
           </div>
           <div>
@@ -126,7 +126,7 @@ const ContactDetail = () => {
                 xl:pl-[30px] md:pl-[20px] xs:pl-[20px] md:pt-[42px] xs:pt-[23px]
                 sm:pt-[9px] sm:pl-[0px] "
               >
-                Phone
+                {t("phone")}
               </p>
             </div>
             <p
@@ -135,7 +135,7 @@ const ContactDetail = () => {
             xl:pl-[106px] lg:pl-[85px] md:pl-[80px] sm:pl-[0px] xs:pl-[66px]
             "
             >
-              Mobile: +(84) 546-6789
+              {t("phonedetail")}
             </p>
             <p
               className="text-black-darkest 
@@ -143,7 +143,7 @@ const ContactDetail = () => {
             xl:pl-[106px] lg:pl-[85px] md:pl-[80px] sm:pl-[0px] xs:pl-[66px]
             "
             >
-              Hotline: +(84) 456-6789
+              {t("phonedetail1")}
             </p>
           </div>
 
@@ -164,7 +164,7 @@ const ContactDetail = () => {
              sm:pt-[14px] sm:pl-[25px] 
              "
               >
-                Working Time
+                {t("workingtime")}
               </p>
             </div>
             <p
@@ -173,7 +173,7 @@ const ContactDetail = () => {
           xl:pl-[106px] lg:pl-[76px]  md:pl-[76px] sm:pl-[26px] xs:pl-[62px]
           "
             >
-              Monday-Friday: 9:00 - 22:00
+              {t("m-f")}
             </p>
             <p
               className="text-black-darkest 
@@ -181,7 +181,7 @@ const ContactDetail = () => {
           xl:pl-[106px] lg:pl-[76px]  md:pl-[76px] sm:pl-[26px] xs:pl-[62px]
           "
             >
-              Saturday-Sunday: 9:00 - 21:00
+              {t("sat-sun")}
             </p>
           </div>
         </div>
@@ -212,12 +212,13 @@ const ContactDetail = () => {
             >
               <div>
                 <p className="font-medium text-black-darkest xs:text-[16px]">
-                  Your name<span className="text-red-700">*</span>
+                  {t("name")}
+                  <span className="text-red-700">*</span>
                 </p>
                 <input
                   type="text"
                   name="name"
-                  placeholder="Abc"
+                  placeholder={t("placename")}
                   value={formik.values.name}
                   onChange={formik.handleChange}
                   className="bg-white-light border border-black-light rounded-lg 
@@ -239,14 +240,14 @@ const ContactDetail = () => {
 
               <div>
                 <p className="font-medium text-black-darkest xs:text-[16px] pt-[36px]">
-                  Email address<span className="text-red-700">*</span>
+                  {t("email")} <span className="text-red-700">*</span>
                 </p>
                 <input
                   type="email"
                   value={formik.values.email}
                   name="email"
                   onChange={formik.handleChange}
-                  placeholder="Abc@def.com"
+                  placeholder={t("placeemail")}
                   className="bg-white-light border border-black-light rounded-lg 
           mt-[22px] text-[16px] text-black-darkest pl-[31px] px-[25px]
           xs:w-full xs:max-w-full xs:h-[50px]
@@ -266,7 +267,7 @@ const ContactDetail = () => {
 
               <div>
                 <p className="font-medium text-black-darkest xs:text-[16px] pt-[36px]">
-                  Subject
+                  {t("subject")}
                 </p>
                 <input
                   type="text"
@@ -278,18 +279,19 @@ const ContactDetail = () => {
           lg:w-full lg:max-w-[400px] lg:h-[70px]
           xl:w-full xl:max-w-[528.75px] xl:h-[75px]
         "
-                  placeholder="This is an optional"
+                  placeholder={t("placesub")}
                 />
               </div>
 
               <div>
                 <p className="font-medium text-black-darkest xs:text-[16px] pt-[36px]">
-                  Message<span className="text-red-700">*</span>
+                  {t("msg")}
+                  <span className="text-red-700">*</span>
                 </p>
                 <input
                   type="text"
                   name="message"
-                  placeholder="Hi! i’d like to ask about"
+                  placeholder={t("placemsg")}
                   value={formik.values.message}
                   onChange={formik.handleChange}
                   className="bg-white-light border border-black-light rounded-lg 
@@ -312,10 +314,10 @@ const ContactDetail = () => {
               <div className="lg:mt-[49px] sm:mt-[30px] xs:mt-[20px] md:ml-[7px] ">
                 <button
                   className="bg-yellow-dark rounded-md text-[16px] text-white-light
-          lg:w-[237px] lg:h-[55px] py-[13.75px] px-[89px]"
+          lg:w-[237px] lg:h-[63px] py-[13.75px] px-[89px]"
                   type="submit"
                 >
-                  Submit
+                  {t("btn3")}
                 </button>
               </div>
             </div>
