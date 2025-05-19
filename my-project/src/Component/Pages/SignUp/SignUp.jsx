@@ -6,10 +6,11 @@ import Auth from "../Auth/Auth";
 import bcrypt from "bcryptjs";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useTranslation } from "react-i18next";
 
 const SignUp = () => {
   const { setIsSignedIn } = useAuth();
-
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const formik = useFormik({
@@ -85,7 +86,7 @@ const SignUp = () => {
           md:pl-[16px] sm:pl-[35px] xs:pl-[20px] pt-[25px]
           lg:text-[30px] md:text-[28px] sm:text-[25px] xs:text-[23px]"
         >
-          Sign Up
+          {t("signup")}
         </div>
 
         <form onSubmit={formik.handleSubmit}>
@@ -100,7 +101,7 @@ const SignUp = () => {
                       xs:pl-[22px] xs:pt-[20px]
                   "
               >
-                Name
+                {t("name")}
                 <span className="text-red-700">*</span>
               </p>
               <input
@@ -108,7 +109,7 @@ const SignUp = () => {
                 name="name"
                 onChange={formik.handleChange}
                 value={formik.values.name}
-                placeholder="name"
+                placeholder={t("name")}
                 className="bg-white-light border border-black-light rounded-lg
             
                       xl:w-[320px] xl:h-[60px] 
@@ -145,14 +146,15 @@ const SignUp = () => {
                           xs:pl-[22px] xs:pt-[20px]
                   "
               >
-                Email <span className="text-red-700">*</span>
+                {t("email")}
+                <span className="text-red-700">*</span>
               </p>
               <input
                 type="email"
                 name="email"
                 onChange={formik.handleChange}
                 value={formik.values.email}
-                placeholder="abc@xyzgmail.com"
+                placeholder={t("placeemail")}
                 className="bg-white-light border border-black-light rounded-lg
                     
                       xl:w-[320px] xl:h-[60px] 
@@ -189,7 +191,7 @@ const SignUp = () => {
                           xs:pl-[22px] xs:pt-[20px]
                   "
               >
-                Password
+                {t("password")}
                 <span className="text-red-700">*</span>
               </p>
               <input
@@ -234,7 +236,8 @@ const SignUp = () => {
                           xs:pl-[22px] xs:pt-[20px]
                   "
               >
-                Confirm Password <span className="text-red-700">*</span>
+                {t("cpassword")}
+                <span className="text-red-700">*</span>
               </p>
               <input
                 type="password"
@@ -280,7 +283,7 @@ const SignUp = () => {
                         xs:pl-[22px] xs:pt-[20px]
                   "
               >
-                Contact Number
+                {t("cnumber")}
                 <span className="text-red-700">*</span>
               </p>
               <input
@@ -325,7 +328,8 @@ const SignUp = () => {
                           xs:pl-[22px] xs:pt-[20px]
                   "
               >
-                City <span className="text-red-700">*</span>
+                {t("tnct")}
+                <span className="text-red-700">*</span>
               </p>
               <input
                 type="text"
@@ -360,10 +364,10 @@ const SignUp = () => {
           </div>
           <div className="flex lg:mt-[10px] md:mt-[25px] sm:mt-[20px] xs:mt-[20px]">
             <p className="xl:pl-[209px] lg:pl-[216px] md:pl-[212px] sm:pl-[35px] xs:pl-[20px] text-[14px]">
-              already have an account?
+              {t("yacc")}
             </p>
             <a href="/signin" className="pl-[25px] underline text-[14px]">
-              Sign in
+              {t("signin")}
             </a>
           </div>
 
@@ -372,7 +376,7 @@ const SignUp = () => {
               onClick={handleSubmit}
               className="bg-yellow-dark w-[200px] h-[40px] rounded-md"
             >
-              Submit
+              {t("btn6")}
             </button>
           </div>
         </form>
@@ -383,7 +387,7 @@ const SignUp = () => {
 
         <div className="md:ml-[233px] sm:ml-[37px] xs:ml-[20px] sm:mt-[20px] xs:mt-[10px]">
           <p className="text-black-darkest text-[15px] pt-[0px] sm:pl-[90px] xs:pl-[78px]">
-            Or
+            {t("or")}
           </p>
           <button
             className="bg-white-light border border-black-border 
@@ -392,7 +396,7 @@ const SignUp = () => {
             "
             // onClick={handleFaceBook}
           >
-            Continue with Facebook
+            {t("fb")}
           </button>
           <div
             className="sm:mt-[-32px] sm:ml-[170px]

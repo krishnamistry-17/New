@@ -6,8 +6,10 @@ import Auth from "../Auth/Auth";
 import bcrypt from "bcryptjs";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useTranslation } from "react-i18next";
 
 const Signin = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { setIsSignedIn } = useAuth();
 
@@ -69,7 +71,7 @@ const Signin = () => {
       md:pl-[70px] sm:pl-[35px] xs:pl-[20px] pt-[25px]
      xl:text-[40px] lg:text-[30px] md:text-[28px] sm:text-[25px] xs:text-[23px]"
         >
-          Sign in
+          {t("signin")}
         </div>
 
         <form onSubmit={formik.handleSubmit}>
@@ -79,14 +81,15 @@ const Signin = () => {
           md:pl-[75px] sm:pl-[35px] xs:pl-[20px] 
           lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px]"
             >
-              Email<span className="text-red-700">*</span>
+              {t("email")}
+              <span className="text-red-700">*</span>
             </p>
             <input
               type="email"
               value={formik.values.email}
               name="email"
               onChange={formik.handleChange}
-              placeholder="abc12@gmail.com"
+              placeholder={t("placeemail")}
               className="bg-white-light border border-black-light rounded-lg
             sm:pl-[25px] xs:pl-[10px]
             xl:w-[320px] xl:h-[50px] 
@@ -115,7 +118,8 @@ const Signin = () => {
            sm:text-[14px] xs:text-[13px] 
            md:pl-[75px] sm:pl-[35px] xs:pl-[20px] sm:pt-[36px] xs:pt-[25px]"
             >
-              Password<span className="text-red-700">*</span>
+              {t("password")}
+              <span className="text-red-700">*</span>
             </p>
             <input
               type="password"
@@ -145,7 +149,7 @@ const Signin = () => {
 
           <div className="md:ml-[76px] sm:ml-[45px] xs:ml-[20px] mt-[20px]">
             <a className="underline" href="/signup">
-              Forget Password
+              {t("forgetpass")}
             </a>
           </div>
 
@@ -154,16 +158,16 @@ const Signin = () => {
             className="md:ml-[80px] sm:ml-[42px] xs:ml-[20px] mt-[20px]"
           >
             <button className="bg-yellow-dark w-[200px] h-[40px] rounded-lg">
-              Submit
+              {t("btn6")}
             </button>
           </div>
 
           <div className="flex lg:mt-[10px] md:mt-[25px] sm:mt-[20px] xs:mt-[20px]">
             <p className="md:pl-[76px] sm:pl-[46px] xs:pl-[20px] text-[14px]">
-              Don't have an account?
+              {t("notacc")}
             </p>
             <a href="/signup" className="pl-[25px] underline text-[14px]">
-              Signup
+              {t("signup")}
             </a>
           </div>
         </form>
@@ -177,7 +181,7 @@ const Signin = () => {
             className="text-black-darkest 
         text-[15px] pt-[0px] md:pl-[90px] sm:pl-[38px] xs:pl-[17px]"
           >
-            Or
+            {t("or")}
           </p>
           <button
             className="bg-white-light border border-black-border 
@@ -187,7 +191,7 @@ const Signin = () => {
         xs:w-[190px] xs:h-[40px] xs:text-[12px]
         "
           >
-            Continue with Facebook
+            {t("fb")}
           </button>
           <div
             className="sm:mt-[-32px] md:ml-[170px] sm:ml-[132px]

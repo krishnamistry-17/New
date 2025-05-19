@@ -10,15 +10,12 @@ const Browse = () => {
   const data = [
     {
       image: homeliv,
-      caption1: "Dining",
     },
     {
       image: living,
-      caption2: "Living",
     },
     {
       image: living2,
-      caption3: "Bedroom",
     },
   ];
 

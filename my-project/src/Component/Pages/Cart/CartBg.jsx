@@ -3,9 +3,12 @@ import shopbg from "../../../assets/images/shopbg.png";
 import great from "../../../assets/svgs/Greater.svg";
 import { useNavigate } from "react-router-dom";
 import logo from "../../../assets/svgs/AppLogo.svg";
+import { useTranslation } from "react-i18next";
 
 const CartBg = () => {
   const navigate = useNavigate();
+
+  const { t } = useTranslation();
 
   const handleClick = () => {
     navigate("/");
@@ -40,18 +43,18 @@ const CartBg = () => {
         sm:text-[35px]
         xs:text-[30px] text-black-darkest font-poppins"
         >
-          Cart
+          {t("cart")}
         </h2>
         <div className=" absolute flex items-center justify-center ">
           <p
             className="font-medium md:text-[16px] xs:text-[12px] text-black-darkest pr-[6.08px]"
             onClick={handleClick}
           >
-            Home
+            {t("home")}
           </p>
           <img src={great} alt="grt"></img>
           <p className="md:text-[16px] xs:text-[12px] text-black-darkest pl-[6.08px]">
-            Cart
+            {t("cart")}
           </p>
         </div>
       </div>

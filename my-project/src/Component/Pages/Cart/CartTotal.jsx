@@ -4,10 +4,11 @@ import React, { useContext, useEffect, useState } from "react";
 import dust from "../../../assets/svgs/Delete.svg";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "./Context/CartProvider";
+import { useTranslation } from "react-i18next";
 
 const CartTotal = () => {
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   //get data from context
   const { cartItems, removeItem, updateItemQuantity } = useContext(CartContext);
 
@@ -94,7 +95,7 @@ const CartTotal = () => {
                   xs:text-[14px]
                   text-black-darkest"
                   >
-                    Product
+                    {t("product")}
                   </h2>
                 </div>
 
@@ -107,7 +108,7 @@ const CartTotal = () => {
                   md:pl-[54px] sm:pl-[35px] xs:pl-[0px] sm:pt-[0px] xs:pt-[15px]
                   text-black-darkest"
                   >
-                    Price
+                    {t("price")}
                   </h2>
                 </div>
 
@@ -120,7 +121,7 @@ const CartTotal = () => {
                   md:pl-[50px] sm:pl-[40px] xs:pl-[0px] sm:pt-[0px] xs:pt-[16px]
                   text-black-darkest"
                   >
-                    Quantity
+                    {t("quantity")}
                   </h2>
                 </div>
 
@@ -133,7 +134,7 @@ const CartTotal = () => {
                   md:pl-[20px] sm:pl-[43px] xs:pl-[1px] sm:pt-[0px] xs:pt-[12px]
                   text-black-darkest"
                   >
-                    Subtotal
+                    {t("subtotal")}
                   </h2>
                 </div>
               </div>
@@ -260,7 +261,7 @@ const CartTotal = () => {
                 font-semibold 
               text-black-darkest"
               >
-                Cart Totals
+                {t("carttotal")}
               </h2>
 
               <div className="flex">
@@ -276,7 +277,7 @@ const CartTotal = () => {
                       font-medium 
                       text-black-darkest"
                   >
-                    Subtotal
+                    {t("subtotal")}
                   </p>
                 </div>
                 <div
@@ -310,7 +311,7 @@ const CartTotal = () => {
                 font-medium 
               text-black-darkest"
                   >
-                    Total
+                    {t("total")}
                   </p>
                 </div>
                 <div
@@ -353,7 +354,7 @@ const CartTotal = () => {
                       "
                   onClick={handleClick}
                 >
-                  Check Out
+                  {t("checkout")}
                 </button>
               </div>
             </div>
@@ -366,7 +367,7 @@ const CartTotal = () => {
       <div className="font-poppins md:hidden">
         {cartItems.length === 0 ? (
           <p className="text-yellow-dark font-poppins font-semibold text-[25px] text-center justify-center pt-[30px] pb-[30px] shadow-lg">
-            Your cart is empty!!
+            {t("cartempty")}
           </p>
         ) : (
           cartItems.map((item, index) => (
@@ -426,11 +427,11 @@ const CartTotal = () => {
         {/*SubTotal Part */}
         <div className="bg-cream-bglight p-[16px] rounded-lg shadow-md sm:mx-[14px] sm:my-[30px] sm:w-[450px]">
           <p className="text-black-darkest font-semibold text-[22px] text-center justify-center">
-            Cart Totals
+            {t("carttotal")}
           </p>
           <div className="flex text-center justify-center mt-[10px]">
             <p className="text-black-darkest font-medium text-[18px] ml-[-10px]">
-              Total: Rs.
+              {t("totalrs")}
             </p>
             <p className="ml-[4px] mt-[2px] text-black-darkest text-[17px]">
               {cartItems.reduce((total, item) => {
@@ -448,7 +449,7 @@ const CartTotal = () => {
               onClick={handleClick}
             >
               {" "}
-              Checkout
+              {t("btn4")}
             </button>
           </div>
         </div>

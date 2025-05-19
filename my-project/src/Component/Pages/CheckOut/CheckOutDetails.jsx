@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../Cart/Context/CartProvider";
 import { Field, Formik } from "formik";
 import * as Yup from "yup";
+import { useTranslation } from "react-i18next";
 
 const CheckOutDetails = () => {
+  const { t } = useTranslation();
   const [total, setTotal] = useState(0);
   const [subtotal, setSubTotal] = useState(0);
   const [isSelected, setSelected] = useState("");
@@ -102,7 +104,7 @@ const CheckOutDetails = () => {
             xl:text-[36px] lg:text-[32px] md:text-[30px] sm:text-[25px] xs:text-[20px]
             "
                   >
-                    Billing details
+                    {t("billing")}
                   </h2>
                 </div>
                 <form>
@@ -114,7 +116,8 @@ const CheckOutDetails = () => {
       lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px]
       sm:pl-[75px] xs:pl-[30px] pt-[36px]"
                       >
-                        First Name<span className="text-red-700">*</span>
+                        {t("fname")}
+                        <span className="text-red-700">*</span>
                       </label>
                       <Field
                         type="text"
@@ -145,7 +148,8 @@ const CheckOutDetails = () => {
                 lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px] 
                 pt-[36px] md:pl-[0px]  sm:pl-[75px] xs:pl-[30px]"
                       >
-                        Last Name<span className="text-red-700">*</span>
+                        {t("lname")}
+                        <span className="text-red-700">*</span>
                       </label>
                       <Field
                         type="text"
@@ -178,7 +182,7 @@ const CheckOutDetails = () => {
                 sm:pl-[75px] xs:pl-[30px]
                  lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px]"
                     >
-                      Company Name
+                      {t("cname")}
                       <span className="text-red-700">*</span>
                     </label>
                     <Field
@@ -210,7 +214,8 @@ const CheckOutDetails = () => {
               lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px] 
               sm:pl-[75px] xs:pl-[30px] pt-[36px]"
                     >
-                      Country / Region<span className="text-red-700">*</span>
+                      {t("conreg")}
+                      <span className="text-red-700">*</span>
                     </label>
                     <select
                       type="text"
@@ -229,9 +234,9 @@ const CheckOutDetails = () => {
                 lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px] pl-[15px] py-[25px]"
                       placeholder="Sri Lanka"
                     >
-                      <option>India</option>
-                      <option>USA</option>
-                      <option>London</option>
+                      <option>{t("op1")}</option>
+                      <option>{t("op2")}</option>
+                      <option>{t("op3")}</option>
                     </select>
                     <p className=" text-red-700 sm:pl-[75px] xs:pl-[25px]  sm:pt-[4px] xs:pt-[8px] text-[13px]">
                       {errors.country && touched.country && (
@@ -245,7 +250,8 @@ const CheckOutDetails = () => {
                       className="sm:pl-[75px] xs:pl-[30px] pt-[60px] font-medium text-black-darkest 
                  lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px]"
                     >
-                      Street address<span className="text-red-700">*</span>
+                      {t("stadd")}
+                      <span className="text-red-700">*</span>
                     </label>
                     <Field
                       type="text"
@@ -275,7 +281,7 @@ const CheckOutDetails = () => {
                       className="sm:pl-[75px] xs:pl-[30px] pt-[36px] font-medium text-black-darkest 
                  lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px]"
                     >
-                      Town / City<span className="text-red-700">*</span>
+                      {t("tnct")} <span className="text-red-700">*</span>
                     </label>
                     <Field
                       type="text"
@@ -303,7 +309,7 @@ const CheckOutDetails = () => {
                       className="text-black-darkest font-medium 
               lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px] sm:pl-[75px] xs:pl-[30px] pt-[36px]"
                     >
-                      Province<span className="text-red-700">*</span>
+                      {t("province")} <span className="text-red-700">*</span>
                     </label>
                     <select
                       type="text"
@@ -322,10 +328,10 @@ const CheckOutDetails = () => {
                 xl:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px] pl-[15px] py-[25px]"
                       placeholder="Western Province"
                     >
-                      <option>Western Province</option>
-                      <option>Alberta</option>
-                      <option>Ontario</option>
-                      <option>Quebec</option>
+                      <option>{t("op4")}</option>
+                      <option>{t("op5")}</option>
+                      <option>{t("op6")}</option>
+                      <option>{t("op7")}</option>
                     </select>
                     <p className=" text-red-700 sm:pl-[75px] xs:pl-[25px]  sm:pt-[4px] xs:pt-[8px] text-[13px]">
                       {errors.province && touched.province && (
@@ -339,7 +345,8 @@ const CheckOutDetails = () => {
                       className="sm:pl-[75px] xs:pl-[30px] pt-[60px] font-medium text-black-darkest 
                  lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px]"
                     >
-                      ZIP code<span className="text-red-700">*</span>
+                      {t("zpcode")}
+                      <span className="text-red-700">*</span>
                     </label>
                     <Field
                       type="number"
@@ -367,7 +374,8 @@ const CheckOutDetails = () => {
                       className="sm:pl-[75px] xs:pl-[30px] pt-[36px] font-medium text-black-darkest 
                  lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px]"
                     >
-                      Phone<span className="text-red-700">*</span>
+                      {t("phone")}
+                      <span className="text-red-700">*</span>
                     </label>
                     <Field
                       type="number"
@@ -397,7 +405,8 @@ const CheckOutDetails = () => {
                       className="sm:pl-[75px] xs:pl-[30px] pt-[36px] font-medium text-black-darkest 
                  lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px]"
                     >
-                      Email address<span className="text-red-700">*</span>
+                      {t("email")}
+                      <span className="text-red-700">*</span>
                     </label>
                     <Field
                       type="email"
@@ -438,7 +447,7 @@ const CheckOutDetails = () => {
                 xs:mx-[10px] xs:mt-[20px]
                 pl-[15px] py-[25px]
                 "
-                      placeholder="Additional information"
+                      placeholder={t("adinfo")}
                     />
                   </div>
                 </form>
@@ -465,7 +474,7 @@ const CheckOutDetails = () => {
                   sm:text-[20px] xs:text-[18px]
                   "
                       >
-                        Product
+                        {t("product")}
                       </h2>
                     </div>
                     <div>
@@ -477,7 +486,7 @@ const CheckOutDetails = () => {
                   sm:pl-[130px] xs:pl-[100px]
                   lg:pr-[37px]"
                       >
-                        Subtotal
+                        {t("subtotal")}
                       </h2>
                     </div>
                   </div>
@@ -532,7 +541,7 @@ const CheckOutDetails = () => {
                     text-black-darkest 
                     lg:text-[24px] md:text-[20px] sm:text-[19px] xs:text-[17px]"
                     >
-                      SubTotal{" "}
+                      {t("subtotal")}
                       <span
                         className="text-black-darkest 
                   lg:text-[24px] lg:pl-[261px]
@@ -548,7 +557,7 @@ const CheckOutDetails = () => {
                    lg:text-[27px] md:text-[20px] sm:text-[20px] xs:text-[20px] 
                     md:pt-[12px] sm:pt-[9px] xs:pt-[10px]"
                     >
-                      Total{" "}
+                      {t("total")}
                       <span
                         className="text-yellow-dark font-bold 
                       lg:text-[27px] md:text-[22px]
@@ -575,7 +584,7 @@ const CheckOutDetails = () => {
                   xs:pt-[26px] xs:pl-[0px]
                   "
                       >
-                        Cash On Delivery
+                        {t("cash")}
                       </p>
                     ) : (
                       <p
@@ -587,7 +596,7 @@ const CheckOutDetails = () => {
                   "
                       >
                         {" "}
-                        Direct Bank Transfer
+                        {t("bank")}
                       </p>
                     )}
                   </div>
@@ -599,9 +608,7 @@ const CheckOutDetails = () => {
               md:w-[330px] sm:w-[307px] xs:w-[280px]
               pt-[11px]"
                   >
-                    Make your payment directly into our bank account. Please use
-                    your Order ID as the payment reference. Your order will not
-                    be shipped until the funds have cleared in our account.
+                    {t("bankdetail")}
                   </p>
 
                   <div>
@@ -618,7 +625,7 @@ const CheckOutDetails = () => {
                 lg:text-[16px] md:text-[14px] sm:text-[13px] xs:text-[12px]"
                       >
                         {" "}
-                        Direct Bank Transfer
+                        {t("bank")}
                       </p>
                     </div>
                     <div className="flex">
@@ -634,7 +641,7 @@ const CheckOutDetails = () => {
                 lg:text-[16px] md:text-[14px] sm:text-[13px] xs:text-[12px] pt-[12px]"
                       >
                         {" "}
-                        Cash On Delivery
+                        {t("cash")}
                       </p>
                     </div>
                   </div>
@@ -646,10 +653,7 @@ const CheckOutDetails = () => {
               md:w-[340px] sm:w-[316px] xs:w-[285px]
               "
                   >
-                    Your personal data will be used to support your experience
-                    throughout this website, to manage access to your account,
-                    and for other purposes described in our{" "}
-                    <b className="font-semibold">privacy policy</b>.
+                    {t("personal")}
                   </p>
 
                   <div className="md:mt-[52px] sm:mt-[20px] xs:mt-[30px]  lg:mx-[70px]">
@@ -663,7 +667,7 @@ const CheckOutDetails = () => {
                 lg:text-[20px] md:text-[15px] sm:text-[14px] xs:text-[13px] text-black-darkest"
                       onClick={handleMessage}
                     >
-                      Place order
+                      {t("btn5")}
                     </button>
                   </div>
                 </div>

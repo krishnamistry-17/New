@@ -125,13 +125,13 @@ const Navbar = () => {
                   className="block p-[10px] text-black text-[16px] font-medium"
                   href="/signin"
                 >
-                  SignIn
+                  {t("signin")}
                 </a>
                 <a
                   className="block p-[10px] text-black text-[16px] font-medium"
                   href="/signup"
                 >
-                  SignUp
+                  {t("signup")}
                 </a>
               </>
             ) : (
@@ -140,7 +140,7 @@ const Navbar = () => {
                 href="/"
                 onClick={handleLogOut}
               >
-                Logout
+                {t("logout")}
               </a>
             )}
           </div>
@@ -156,7 +156,7 @@ const Navbar = () => {
           >
             {isSignedIn ? (
               <a href="/" onClick={handleLogOut}>
-                LogOut
+                {t("logout")}
               </a>
             ) : (
               <>
@@ -164,13 +164,13 @@ const Navbar = () => {
                   className="block p-[10px] text-black text-[16px] font-medium"
                   href="/signin"
                 >
-                  Signin
+                  {t("signin")}
                 </a>
                 <a
                   className="block p-[10px] text-black text-[16px] font-medium"
                   href="/signup"
                 >
-                  Signup
+                  {t("signup")}
                 </a>
               </>
             )}
