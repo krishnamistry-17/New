@@ -499,7 +499,7 @@ const CheckOutDetails = () => {
                             className="text-black-light 
                    lg:text-[20px] md:text-[16px] sm:text-[15px] xs:text-[14px] "
                           >
-                            {item.heading}
+                            {t(`products.${item.heading}`)}
                           </p>
                           <p
                             className="pl-[9px] pt-[5px] font-medium text-black-darkest 

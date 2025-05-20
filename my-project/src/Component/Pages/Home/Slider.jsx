@@ -39,24 +39,20 @@ const Slider = () => {
          md:px-12 md:py-[223px]"
         >
           <div className="md:w-[50%] w-full mb-8 md:mb-0">
-            {posts.map((post, index) => (
-              <div key={index}>
-                <h2
-                  className="font-bold 
+            <h2
+              className="font-bold 
             text-2xl sm:text-3xl
             md:text-4xl lg:text-5xl"
-                >
-                  {t("slidehead")}
-                </h2>
-                <p
-                  className="text-gray-lightpara 
+            >
+              {t("slidehead")}
+            </h2>
+            <p
+              className="text-gray-lightpara 
             text-sm sm:text-base 
             md:text-lg lg:text-xl"
-                >
-                  {t("slidesubhead")}
-                </p>
-              </div>
-            ))}
+            >
+              {t("slidesubhead")}
+            </p>
             <button
               className="mt-[25px] bg-yellow-dark
               w-[176px] h-[48px]
@@ -76,45 +72,40 @@ const Slider = () => {
               <CarouselCustomArrows />
             </div>
 
-            {posts.map((post, index) => (
-              <div key={index}>
-                <div className="md:visible xs:invisible">
-                  <div
-                    className="w-[217px] h-[130px]
+            <div className="md:visible xs:invisible">
+              <div
+                className="w-[217px] h-[130px]
               bg-white-light opacity-70 absolute 
                 top-7 sm:top-[160px] lg:top-[170px]
                 right-[15%] sm:right-[10%] md:right-[26%] lg:right-[59%] "
-                  >
-                    <p
-                      className=" text-gray-lightpara text-[16px] font-medium 
+              >
+                <p
+                  className=" text-gray-lightpara text-[16px] font-medium 
                 pt-[32px] pr-[43px] pb-[74px] pl-[32px]
                 "
-                    >
-                      {post.numb}{" "}
-                      <img src={vectore} alt="arrow" className="mt-0" />{" "}
-                      {t("smallhead")}
-                    </p>
-                    <h2 className="text-[28px] font-semibold mt-[-70px] ml-[32px]">
-                      {t("smalldesc")}
-                    </h2>
-                  </div>
+                >
+                  01 <img src={vectore} alt="arrow" className="mt-0" />{" "}
+                  {t("smallhead")}
+                </p>
+                <h2 className="text-[28px] font-semibold mt-[-70px] ml-[32px]">
+                  {t("smalldesc")}
+                </h2>
+              </div>
 
-                  <div
-                    className="bg-yellow-dark
+              <div
+                className="bg-yellow-dark
                 w-[48px] h-[48px]
                 absolute
                 top-[97px] sm:top-[85px] md:top-[239px] lg:top-[250px]
                 right-[10%] sm:right-[7%] md:right-[10%] lg:right-[52%]"
-                  >
-                    <img
-                      className="pt-[12px] pr-[12px] pb-[12px] pl-[12px]"
-                      src={arrow}
-                      alt="arrow"
-                    />
-                  </div>
-                </div>
+              >
+                <img
+                  className="pt-[12px] pr-[12px] pb-[12px] pl-[12px]"
+                  src={arrow}
+                  alt="arrow"
+                />
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>

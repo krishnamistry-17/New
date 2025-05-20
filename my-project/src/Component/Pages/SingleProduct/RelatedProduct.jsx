@@ -4,11 +4,13 @@ import product2 from "../../../assets/images/product2.png";
 import product3 from "../../../assets/images/product3.png";
 import product4 from "../../../assets/images/product4.png";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const RelatedProduct = () => {
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   const [posts, setPosts] = useState([]);
+
   const data = [
     {
       id: 1,
@@ -72,7 +74,7 @@ const RelatedProduct = () => {
     <>
       <div className="lg:mt-[100px] md:mt-[200px] sm:mt-[500px] xs:mt-[475px]">
         <h1 className="mb-[26px] font-medium md:text-[36px] xs:text-[26px] items-center text-center text-black-darkest">
-          Related Products
+          {t("common.rpro")}
         </h1>
         <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-8 mx-4 sm:mx-8">
           {posts.map((post, index) => (
@@ -81,16 +83,17 @@ const RelatedProduct = () => {
                 <img
                   onClick={() => handleSinglePage(post.id)}
                   src={post.image}
-                  alt={post.heading}
+                  alt={t(`products.${post.heading}`)}
                   className="w-full h-auto object-cover"
                 />
               </div>
+
               <div className="bg-gray-graybg pt-[16px] pl-[16px] pr-[20px] pb-[30px]">
                 <h2 className="text-black-dark font-semibold text-[18px] lg:text-[24px] md:text-[20px] sm:text-[18px] xs:text-[16px] pb-[8px]">
-                  {post.heading}
+                  {t(`products.${post.heading}`)}
                 </h2>
                 <p className="text-gray-graypara font-medium text-[14px] lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px] pb-[8px]">
-                  {post.subheading}
+                  {t(`products.${post.subheading}`)}
                 </p>
                 <div className="flex gap-4">
                   <div className="mr-[5px]">
@@ -134,7 +137,7 @@ const RelatedProduct = () => {
             onClick={handelProduct}
           >
             {" "}
-            Show More
+            {t("btn1")}
           </button>
         </div>
       </div>

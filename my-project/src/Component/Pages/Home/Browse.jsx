@@ -5,27 +5,7 @@ import living2 from "../../../assets/images/living-2.png";
 import { useTranslation } from "react-i18next";
 
 const Browse = () => {
-  const [posts, setPosts] = useState([]);
   const { t } = useTranslation();
-  const data = [
-    {
-      image: homeliv,
-    },
-    {
-      image: living,
-    },
-    {
-      image: living2,
-    },
-  ];
-
-  const loadData = () => {
-    setPosts(data);
-  };
-
-  useEffect(() => {
-    loadData();
-  }, []);
 
   return (
     <div className="mb-[51.95px] xl:ml-[169px] xl:mr-[126px]">
@@ -43,29 +23,33 @@ const Browse = () => {
     gap-4 mt-[15px] 
     px-4 md:px-0 "
       >
-        {posts.map((post, index) => (
-          <div key={index}>
-            <img src={post.image}></img>
-            <p
-              className="text-black-para font-semibold lg:text-[24px] sm:text-[16px] 
+        <div>
+          <img src={homeliv} alt="i1" />
+          <p
+            className="text-black-para font-semibold lg:text-[24px] sm:text-[16px] 
            xs:text-[12px] text-center mt-2"
-            >
-              {t("c1")}
-            </p>
-            <p
-              className="text-black-para font-semibold lg:text-[24px] sm:text-[16px] 
+          >
+            {t("c1")}
+          </p>
+        </div>
+        <div>
+          <img src={living} alt="i2" />
+          <p
+            className="text-black-para font-semibold lg:text-[24px] sm:text-[16px] 
            xs:text-[12px] text-center mt-2"
-            >
-              {t("c2")}
-            </p>
-            <p
-              className="text-black-para font-semibold lg:text-[24px] sm:text-[16px] 
+          >
+            {t("c2")}
+          </p>
+        </div>
+        <div>
+          <img src={living2} alt="i3" />
+          <p
+            className="text-black-para font-semibold lg:text-[24px] sm:text-[16px] 
            xs:text-[12px] text-center mt-2"
-            >
-              {t("c3")}
-            </p>
-          </div>
-        ))}
+          >
+            {t("c3")}
+          </p>
+        </div>
       </div>
     </div>
   );

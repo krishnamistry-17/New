@@ -13,6 +13,7 @@ import { useTranslation } from "react-i18next";
 const Product = () => {
   const [posts, setPosts] = useState([]);
   const { t } = useTranslation();
+
   const data = [
     {
       id: 1,
@@ -134,7 +135,7 @@ const Product = () => {
               <img
                 onClick={() => handleSinglePage(post.id)}
                 src={post.image}
-                alt={post.heading}
+                alt={t(`products.${post.heading}`)}
                 className="w-full h-auto object-cover"
               ></img>
             </div>
@@ -147,7 +148,7 @@ const Product = () => {
              pb-[8px]
             "
               >
-                {post.heading}
+                {t(`products.${post.heading}`)}
               </h2>
               <p
                 className="text-gray-graypara
@@ -157,7 +158,7 @@ const Product = () => {
             pb-[8px]
             "
               >
-                {post.subheading}
+                {t(`products.${post.subheading}`)}
               </p>
               <div className="flex gap-4">
                 <div className="mr-[5px]">
@@ -181,17 +182,11 @@ const Product = () => {
             {post.discount && post.tag && (
               <div
                 className={`${
-                  post.discountFlag ? "bg-red-600 " : "bg-green-500"
-                }
-                     rounded-full h-12 w-12 absolute top-2 right-7 
-                    justify-center items-center`}
+                  post.discountFlag ? "bg-red-600" : "bg-green-500"
+                } rounded-full h-[48px] w-[48px] absolute top-[8px] right-[28px] flex justify-center items-center`}
               >
-                <p
-                  className="text-white-light
-                      text-[15px] p-[9px]
-                      "
-                >
-                  {post.tag}
+                <p className="text-white-light text-[15px] p-[9px]">
+                  {post.tag === "New" ? t("tags.new") : post.tag}
                 </p>
               </div>
             )}

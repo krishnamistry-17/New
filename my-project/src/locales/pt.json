@@ -54,20 +54,22 @@
   "order": "Pedido acima de 150 $",
   "support": "Suporte 24/7",
   "dsupport": "Suporte dedicado",
-
+"blogparas": {
+  "para": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mus mauris vitae ultricies leo integer malesuada nunc. In nulla posuere sollicitudin aliquam ultrices. Morbi blandit cursus risus at ultrices mi tempus imperdiet. Libero enim sed faucibus turpis in. Cursus mattis molestie a iaculis at erat. Nibh cras pulvinar mattis nunc sed blandit libero. Pellentesque elit ullamcorper dignissim cras tincidunt. Pharetra et ultrices neque ornare aenean euismod elementum."
+},
   "blog": "Blog",
   "subhead1": "Admin",
   "subhead2": "14 de outubro de 2022",
   "subhead3": "Madeira",
   "bloghead": "Mergulhando de cabeça no design millennial",
-  "blogpara": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+  "blogpara": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mus mauris vitae ultricies leo integer malesuada nunc. In nulla posuere sollicitudin aliquam ultrices. Morbi blandit cursus risus at ultrices mi tempus imperdiet. Libero enim sed faucibus turpis in. Cursus mattis molestie a iaculis at erat. Nibh cras pulvinar mattis nunc sed blandit libero. Pellentesque elit ullamcorper dignissim cras tincidunt. Pharetra et ultrices neque ornare aenean euismod elementum.",
   "btn2": "Leia mais",
   "handmade": "Feito à mão",
   "bloghead1": "Explorando novas formas de decorar",
-  "blogpara1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+  "blogpara1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mus mauris vitae ultricies leo integer malesuada nunc. In nulla posuere sollicitudin aliquam ultrices. Morbi blandit cursus risus at ultrices mi tempus imperdiet. Libero enim sed faucibus turpis in. Cursus mattis molestie a iaculis at erat. Nibh cras pulvinar mattis nunc sed blandit libero. Pellentesque elit ullamcorper dignissim cras tincidunt. Pharetra et ultrices neque ornare aenean euismod elementum.",
   "wood": "madeira",
   "bloghead2": "Peças feitas à mão que levaram tempo para serem feitas",
-  "blogpara2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+  "blogpara2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mus mauris vitae ultricies leo integer malesuada nunc. In nulla posuere sollicitudin aliquam ultrices. Morbi blandit cursus risus at ultrices mi tempus imperdiet. Libero enim sed faucibus turpis in. Cursus mattis molestie a iaculis at erat. Nibh cras pulvinar mattis nunc sed blandit libero. Pellentesque elit ullamcorper dignissim cras tincidunt. Pharetra et ultrices neque ornare aenean euismod elementum.",
   "categories": "Categorias",
   "crafts": "Artesanato",
   "design": "Design",
@@ -147,7 +149,51 @@
   "signup": "Registrar",
   "or": "Ou",
   "fb": "Continuar com o Facebook",
-  "logout": "Sair"
+  "logout": "Sair",
+
+  "common":{
+   "hnotd": "Título não definido",
+    "rpro": "Produtos relacionados"
+  },
+  "products": {
+    "Syltherine": "Syltherine",
+    "Stylish Cafe Chair": "Cadeira de café estilosa",
+    "Leviosa": "Leviosa",
+    "Stylish cafe chair": "Cadeira de café estilosa",
+    "Lolito": "Lolito",
+    "Luxury big sofa": "Sofá grande de luxo",
+    "Respira": "Respira",
+    "Bar table and stool": "Mesa de bar e banqueta",
+    "Grifo": "Grifo",
+"Night lamp": "Luminária noturna",
+"Muggo": "Muggo",
+"Small mug": "Caneca pequena",
+"Pingky": "Pingky",
+"Cute bed set": "Conjunto de cama fofo",
+"Potty": "Potty",
+"Minimalist flower pot": "Vaso de flor minimalista"
+
+  },
+  "tags":{
+    "new": "Novo"
+  },
+  "productDetail": {
+    "crv": "5 Avaliações de Clientes",
+    "para": "Estabelecendo o padrão como um dos alto-falantes mais altos da sua classe, o Kilburn é um herói compacto e robusto com áudio bem equilibrado, oferecendo médios claros e agudos estendidos.",
+    "size": "Tamanho",
+    "color": "Cor",
+    "addcart": "Adicionar ao Carrinho",
+    "cmpr": "Comparar",
+    "sku": "SKU",
+    "ss": "S001S",
+    "catgry": "Categoria",
+    "sofa": "Sofás",
+    "tag": "Tags",
+    "td": "Sofá, Cadeira, Casa, Loja",
+    "share": "Compartilhar",
+    "pnotf": "Produto não encontrado!"
+  }
+
 
 
 }

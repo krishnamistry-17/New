@@ -21,8 +21,11 @@ import linkdin from "../../../assets/svgs/Linkdin.svg";
 import twitter from "../../../assets/svgs/Twitter.svg";
 import dot from "../../../assets/svgs/Dot.svg";
 import { CartContext } from "../Cart/Context/CartProvider";
+import { useTranslation } from "react-i18next";
 
 const SingleProduct = () => {
+  const { t } = useTranslation();
+
   const data = [
     {
       id: 1,
@@ -504,7 +507,7 @@ const SingleProduct = () => {
               className="sm:pl-[93px] xs:pl-[25px] pt-[39px] pb-[37px] text-black-light sm:text-[16px] xs:text-[14px]"
               onClick={handleHome}
             >
-              Home
+              {t("home")}
             </p>
             <img
               src={nextarrow}
@@ -515,7 +518,7 @@ const SingleProduct = () => {
               className="pl-[24px] pt-[39px] pb-[37px] text-black-light sm:text-[16px] xs:text-[14px]"
               onClick={handleShop}
             >
-              Shop
+              {t("shop")}
             </p>
             <img
               src={nextarrow}
@@ -530,11 +533,11 @@ const SingleProduct = () => {
             {product ? (
               <div>
                 <p className="sm:pl-[34px] xs:pl-[20px] pt-[38px] sm:text-[16px] xs:text-[12px] text-black-darkest">
-                  {product.subheading}
+                  {t(`products.${product.subheading}`)}
                 </p>
               </div>
             ) : (
-              <p>Heading not defined</p>
+              <p>{t("common.hnotd")}</p>
             )}
           </div>
         </div>
@@ -557,7 +560,7 @@ const SingleProduct = () => {
                         <img
                           className="w-[83px] h-[83px] p-[10px]"
                           src={product.image}
-                          alt={product.heading}
+                          alt={t(`products.${product.heading}`)}
                         ></img>
                       </div>
 
@@ -565,7 +568,7 @@ const SingleProduct = () => {
                         <img
                           className="w-[83px] h-[83px] p-[10px]"
                           src={product.image}
-                          alt={product.heading}
+                          alt={t(`products.${product.heading}`)}
                         ></img>
                       </div>
 
@@ -573,7 +576,7 @@ const SingleProduct = () => {
                         <img
                           className="w-[83px] h-[83px] p-[10px]"
                           src={product.image}
-                          alt={product.heading}
+                          alt={t(`products.${product.heading}`)}
                         ></img>
                       </div>
 
@@ -581,7 +584,7 @@ const SingleProduct = () => {
                         <img
                           className="w-[83px] h-[83px] p-[10px]"
                           src={product.image}
-                          alt={product.heading}
+                          alt={t(`products.${product.heading}`)}
                         ></img>
                       </div>
                     </div>
@@ -607,7 +610,7 @@ const SingleProduct = () => {
                   lg:w-[400px] lg:h-[356px]
                    md:w-[315px] md:h-[330px]"
                           src={product.image}
-                          alt={product.heading}
+                          alt={t(`products.${product.heading}`)}
                         />
                       </div>
                     </div>
@@ -626,7 +629,7 @@ const SingleProduct = () => {
               md:text-[26px] xs:text-[20px]
                text-black-darkest"
                     >
-                      {product.heading}
+                      {t(`products.${product.heading}`)}
                     </h1>
 
                     <div className="flex">
@@ -682,7 +685,7 @@ const SingleProduct = () => {
                         className="text-black-light 
                 text-[13px] pl-[22px] pt-[5px] pb-[5px]"
                       >
-                        5 Customer Review
+                        {t("productDetail.crv")}
                       </p>
                     </div>
 
@@ -693,11 +696,14 @@ const SingleProduct = () => {
               h-[80px] 
               lg:text-[13px] md:text-[12px] sm:text-[12px] xs:text-[12px] text-black-darkest"
                     >
-                      {product.para}
+                      {t("productDetail.para")}
                     </p>
 
                     <div className="w-[123px] h-[63px]">
-                      <p className="text-[14px] text-black-light">Size</p>
+                      <p className="text-[14px] text-black-light">
+                        {" "}
+                        {t("productDetail.size")}
+                      </p>
                       <div className="flex mt-[12px]">
                         <div className=" w-[30px] h-[30px] bg-yellow-dark rounded-md">
                           <p className="sm:text-[13px] xs:text-[12px] text-white-light text-center p-[6px]">
@@ -718,7 +724,10 @@ const SingleProduct = () => {
                     </div>
 
                     <div className="w-[123px] h-[63px] mt-[18px]">
-                      <p className="text-[14px] text-black-light">Color</p>
+                      <p className="text-[14px] text-black-light">
+                        {" "}
+                        {t("productDetail.color")}
+                      </p>
                       <div className="flex mt-[12px]">
                         <div
                           className=" 
@@ -789,7 +798,7 @@ const SingleProduct = () => {
                           className="lg:py-[17px] xs:py-[12px] md:py-[10px] lg:px-[48px] xs:px-[34px] md:px-[30px] lg:text-[20px] md:text-[14px] xs:text-[12px] text-black-darkest"
                           onClick={handleAddToCart}
                         >
-                          Add To Cart
+                          {t("productDetail.addcart")}
                         </button>
                       </div>
 
@@ -820,7 +829,7 @@ const SingleProduct = () => {
               "
                           onClick={handleCompare}
                         >
-                          Compare
+                          {t("productDetail.cmpr")}
                         </p>
                       </div>
                     </div>
@@ -829,40 +838,55 @@ const SingleProduct = () => {
 
                     <div className="md:mt-[59px] sm:mt-[30px] xs:mt-[20px]">
                       <div className="flex">
-                        <p className="text-[16px] text-black-light">SKU</p>
+                        <p className="text-[16px] text-black-light">
+                          {" "}
+                          {t("productDetail.sku")}
+                        </p>
                         <img
                           className="pl-[61px] pr-[12px]"
                           src={dot}
                           alt="."
                         ></img>
-                        <p className="text-[16px] text-black-light">SS001</p>
+                        <p className="text-[16px] text-black-light">S001S</p>
                       </div>
                       <hr className="border-black-border" />
 
                       <div className="flex mt-[18px]">
-                        <p className="text-[16px] text-black-light">Category</p>
+                        <p className="text-[16px] text-black-light">
+                          {" "}
+                          {t("productDetail.catgry")}
+                        </p>
                         <img
                           className="pl-[29px] pr-[12px]"
                           src={dot}
                           alt="."
                         ></img>
-                        <p className="text-[16px] text-black-light">Sofas</p>
+                        <p className="text-[16px] text-black-light">
+                          {" "}
+                          {t("productDetail.sofa")}
+                        </p>
                       </div>
 
                       <div className="flex mt-[12px]">
-                        <p className="text-[16px] text-black-light">Tags</p>
+                        <p className="text-[16px] text-black-light">
+                          {" "}
+                          {t("productDetail.tag")}
+                        </p>
                         <img
                           className="pl-[61px] pr-[12px]"
                           src={dot}
                           alt="."
                         ></img>
                         <p className="text-[16px] text-black-light">
-                          Sofa, Chair, Home, Shop
+                          {t("productDetail.td")}
                         </p>
                       </div>
 
                       <div className="flex mt-[14px]">
-                        <p className="text-[16px] text-black-light">Share</p>
+                        <p className="text-[16px] text-black-light">
+                          {" "}
+                          {t("productDetail.share")}
+                        </p>
                         <img
                           className="pl-[52px] pr-[12px]"
                           src={dot}
@@ -889,7 +913,7 @@ const SingleProduct = () => {
                 </div>
               </div>
             ) : (
-              <p>Product not found!</p>
+              <p> {t("productDetail.pnotf")}</p>
             )}
           </div>
         </div>

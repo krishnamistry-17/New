@@ -8,12 +8,13 @@ import product6 from "../../../assets/images/product6.png";
 import product7 from "../../../assets/images/product7.png";
 import product8 from "../../../assets/images/product8.png";
 import Pagination from "./Pagination";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const GalleryShop = () => {
   const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
-
+  const { t } = useTranslation();
   //40 times data taken data and it's repeated not a new
   const data = [
     {
@@ -438,16 +439,16 @@ const GalleryShop = () => {
               <img
                 onClick={() => handleSinglePage(post.id)}
                 src={post.image}
-                alt={post.heading}
+                alt={t(`products.${post.heading}`)}
                 className="w-full h-auto object-cover"
               />
             </div>
             <div className="bg-gray-graybg pt-[16px] pl-[16px] pr-[20px] pb-[30px]">
               <h2 className="text-black-dark font-semibold text-[18px] lg:text-[24px] md:text-[20px] sm:text-[18px] xs:text-[16px] pb-[8px]">
-                {post.heading}
+                {t(`products.${post.heading}`)}
               </h2>
               <p className="text-gray-graypara font-medium text-[14px] lg:text-[16px] md:text-[15px] sm:text-[14px] xs:text-[13px] pb-[8px]">
-                {post.subheading}
+                {t(`products.${post.subheading}`)}
               </p>
               <div className="flex gap-4">
                 <div className="mr-[5px]">

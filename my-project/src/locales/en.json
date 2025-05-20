@@ -17,11 +17,15 @@
   "c3":"Bedroom",
   "title":"Our Products",
   "btn1":"Show more",
+
   "slidehead":"50+ Beautiful rooms inspiration",
   "slidesubhead":"Our designer already made a lot of beautiful prototype of rooms that inspire you",
   "slidebtn":"Explore More",
   "smallhead":"Bed Room",
   "smalldesc":"Inner Peace",
+  
+
+
   "mashead":"Share your setup with",
   "massub":"FuniroFurniture",
 
@@ -56,14 +60,17 @@
   "support":"24 / 7 Support",
   "dsupport":"Dedicated support",
 
+  "blogparas": {
+    "para": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magna aliqua. Mus mauris vitae ultricies leo integer malesuada nunc. In nulla posuere sollicitudin aliquam ultrices. Morbi blandit cursus risus at ultrices mi tempus imperdiet. Libero enim sed faucibus turpis in. Cursus mattis molestie a iaculis at erat. Nibh cras pulvinar mattis nunc sed blandit libero. Pellentesque elit ullamcorper dignissim cras tincidunt. Pharetra et ultrices neque ornare aenean euismod elementum."
+  },
   "blog":"Blog",
     "subhead1": "Admin",
   "subhead2": "14 Oct 2022",
      "subhead3": "Wood",
      "bloghead": "Going all-in with millennial design",
-      "blogpara": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magna aliqua. Mus mauris vitae ultricies leo integer malesuada nunc. In nulla posuere sollicitudin aliquam ultrices. Morbi blandit cursus risus at ultrices mi tempus imperdiet. Libero enim sed faucibus turpis in. Cursus mattis molestie a iaculis at erat. Nibh cras pulvinar mattis nunc sed blandit libero. Pellentesque elit ullamcorper dignissim cras tincidunt. Pharetra et ultrices neque ornare aenean euismod elementum.",
       "btn2": " Read more",
       "handmade":"Handmade",
+      "blogpara":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore magna aliqua. Mus mauris vitae ultricies leo integer malesuada nunc. In nulla posuere sollicitudin aliquam ultrices. Morbi blandit cursus risus at ultrices mi tempus imperdiet. Libero enim sed faucibus turpis in. Cursus mattis molestie a iaculis at erat. Nibh cras pulvinar mattis nunc sed blandit libero. Pellentesque elit ullamcorper dignissim cras tincidunt. Pharetra et ultrices neque ornare aenean euismod elementum.",
      "bloghead1": " Exploring new ways of decorating",
       "blogpara1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mus mauris vitae ultricies leo integer malesuada nunc. In nulla posuere sollicitudin aliquam ultrices. Morbi blandit cursus risus at ultrices mi tempus imperdiet. Libero enim sed faucibus turpis in. Cursus mattis molestie a iaculis at erat. Nibh cras pulvinar mattis nunc sed blandit libero. Pellentesque elit ullamcorper dignissim cras tincidunt. Pharetra et ultrices neque ornare aenean euismod elementum.",
       "wood":"wood",
@@ -148,7 +155,54 @@
       "signup":" Signup",
       "or":"Or",
       "fb":"Continue with Facebook",
-      "logout":"Logout"
+      "logout":"Logout",
+
+      "common": {
+      "hnotd":"Heading not defined",
+      "rpro":"Related Products"
+      },
+
+      
+  "products": {
+    "Syltherine": "Syltherine",
+    "Stylish Cafe Chair": "Stylish Cafe Chair",
+    "Leviosa": "Leviosa",
+    "Stylish cafe chair": "Stylish cafe chair",
+    "Lolito": "Lolito",
+    "Luxury big sofa": "Luxury big sofa",
+    "Respira": "Respira",
+    "Bar table and stool": "Bar table and stool",
+    "Grifo": "Grifo",
+    "Night lamp": "Night lamp",
+    "Muggo": "Muggo",
+    "Small mug": "Small mug",
+    "Pingky": "Pingky",
+    "Cute bed set": "Cute bed set",
+    "Potty": "Potty",
+    "Minimalist flower pot": "Minimalist flower pot"
+    
+  },
+  
+  "tags":{
+    "new":"New"
+  },
+
+  "productDetail": {
+    "crv": "5 Customer Review",
+    "para": "Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound.",
+    "size": "Size",
+    "color": "Color",
+    "addcart": "Add To Cart",
+    "cmpr": "Compare",
+    "sku": "SKU",
+    "ss": "S001S",
+    "catgry": "Category",
+    "sofa": "Sofas",
+    "tag": "Tags",
+    "td": "Sofa, Chair, Home, Shop",
+    "share": "Share",
+    "pnotf": "Product not found!"
+  }
     }
 
 

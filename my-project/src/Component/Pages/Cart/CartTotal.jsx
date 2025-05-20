@@ -152,7 +152,7 @@ const CartTotal = () => {
                   >
                     <img
                       src={item?.image}
-                      alt={item?.heading}
+                      alt={t(`products.${item.heading}`)}
                       className="py-[8px] px-[3px]"
                     />
                   </div>
@@ -165,7 +165,7 @@ const CartTotal = () => {
                     xl:pt-[100px] lg:pt-[75px] md:pt-[65px] sm:pt-[65px] xs:pt-[0px]
                     "
                     >
-                      {item.heading}
+                      {t(`products.${item.heading}`)}
                     </p>
                   </div>
                   <div className="sm:ml-[0px] xs:ml-[86px]">
@@ -350,7 +350,7 @@ const CartTotal = () => {
                       sm:w-[130px] sm:h-[45px]
                       xs:w-[130px] xs:h-[40px]
                       md:pl-[59px] md:pt-[13.77px] md:pb-[14.71px] md:pr-[58px]
-                      xl:text-[20px] lg:text-[17px] md:text-[16px] sm:text-[15px] xs:text-[14px] sm:mb-[1px] xs:mb-[25px]
+                      xl:text-[17px] lg:text-[14px] md:text-[16px] sm:text-[15px] xs:text-[14px] sm:mb-[1px] xs:mb-[25px]
                       "
                   onClick={handleClick}
                 >
